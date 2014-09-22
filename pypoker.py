@@ -6,6 +6,7 @@ Author: Usman Ehtesham Gul <uehtesham90@gmail.com>
 '''
 
 import json
+import random
 
 class Table(object):
 	'''
@@ -35,29 +36,11 @@ class Table(object):
 		elif min_players > max_players:
 			 raise Exception('Parameter [minPlayers] must be less than or equal to [maxPlayers].')
 
-	def __str__(self):
-		return self.jsonify()
-
-	def jsonify(self):
-		result = {}
-		result['auto_start'] = self.auto_start
-		result['small_blind'] = self.small_blind
-		result['big_blind'] = self.big_blind
-		result['min_players'] = self.min_players
-		result['max_players'] = self.max_players
-		result['players'] = self.players
-		result['dealer'] = self.dealer
-		result['min_buy_in'] = self.min_buy_in
-		result['max_buy_in'] = self.max_buy_in
-		result['players_to_remove'] = self.players_to_remove
-		result['players_to_add'] = self.players_to_add
-		result['turn_bet'] = self.turn_bet
-		result['game_winners'] = self.game_winners
-		result['game_losers'] = self.game_losers
-		return json.dumps(result) 
-
 
 class Player(object):
+	'''
+	This class creates Player objects to play the game
+	'''
 
 	def __init__(self, player_name, chips, table):
 		self.player_name = player_name
@@ -67,25 +50,12 @@ class Player(object):
 		self.allIn = False
 		self.talked = False
 		self.cards = []
-
-	def __str__(self):
-		result = {}
-		result['player_name'] = self.player_name
-		result['chips'] = self.chips
-		result['table'] = self.table #.jsonify()
-		result['folded'] = self.folded
-		result['allIn'] = self.allIn
-		result['talked'] = self.talked
-		result['cards'] = self.cards
-		return result
+		
 
 def main():
 	table = Table(50,100,2,10,100,1000)
-	print table
-
 	player = Player('usman', 1000, table)
-	print player.table
-
+	
 if __name__ == "__main__":
     main()
 
