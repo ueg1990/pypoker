@@ -12,7 +12,7 @@ class Game(object):
 		self.pot = 0
 		self.round_name = 'Deal' # First round
 		self.bet_name = 'bet' # bet, raise, re-rause, cap
-		self.bets = [50,100]
+		self.bets = []
 		self.round_bets = []
 		self.deck = Deck()
 		self.board = []
