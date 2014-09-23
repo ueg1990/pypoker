@@ -12,7 +12,7 @@ class Player(object):
 		self.chips = chips
 		self.table = table # Circular reference to allow reference back to parent object
 		self.folded = False
-		self.allIn = False
+		self.all_in = False
 		self.talked = False
 		self.cards = []
 

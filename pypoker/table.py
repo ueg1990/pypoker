@@ -22,6 +22,7 @@ class Table(object):
 		self.turn_bet = {}
 		self.game_winners = []
 		self.game_losers = []
+		self.current_player = -1
 
 		if min_players < 2:
 			raise Exception('Parameter [minPlayers] must be a postive integer of a minimum value of 2.')

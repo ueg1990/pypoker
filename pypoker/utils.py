@@ -22,3 +22,13 @@ def check_for_end_of_round(table):
 					table.current_player = index
 					end_of_round = False
 	return end_of_round
+
+def check_for_all_in_player(table, winners):
+	'''
+	Function that returns a list of players that wnet all in
+	'''
+	all_in_players = []
+	for winner in winners:
+		if table.players[winner].all_in:
+			all_in_players.append(winner)
+	return all_in_players
