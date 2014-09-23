@@ -39,7 +39,7 @@ def check_for_bankrupt(table):
 	'''
 	players_not_bankrupt = []
 	for index, player in enumerate(table.players):
-		if table.players[index].chips <= 0
+		if table.players[index].chips <= 0:
 			table.game_losers.append(table.players[index])
 			print 'player ' + table.players[i].player_name + ' is going bankrupt'
 		else:
