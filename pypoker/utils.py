@@ -94,3 +94,12 @@ def rank_kickets(ranks, number_of_cards):
 		for index in xrange(number_of_cards):
 			kicker_rank += ranks_list[index]
 		return kicker_rank
+
+def rank_hand(hand):
+	result = rank_hand_int(hand)
+	hand.rank = result.rank
+	hand.message = result.message
+	return hand
+
+def rank_hand_int(hand):
+	pass
