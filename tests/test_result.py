@@ -1,9 +1,9 @@
 import unittest
-from pypoker import Table
+from pypoker import Result
 
-class TableTestCase(unittest.TestCase):
-    ''' 
-    Tests for the Table class
+class ResultTestCase(unittest.TestCase):
+    '''
+    Tests for the Result class
     '''
     def setUp(self):
         pass

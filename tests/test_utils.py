@@ -1,4 +1,5 @@
 import unittest
+from pypoker import utils
 
 class UtilsTestCase(unittest.TestCase):
     ''' 
