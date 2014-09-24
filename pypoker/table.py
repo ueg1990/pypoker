@@ -3,6 +3,7 @@ This module defines a class for the Poker Table for the game engine
 '''
 
 from game import Game
+from player import Player
 
 class Table(object):
 	'''
@@ -27,11 +28,11 @@ class Table(object):
 		self.current_player = -1
 
 		if min_players < 2:
-			raise Exception('Parameter [minPlayers] must be a postive integer of a minimum value of 2.')
+			raise Exception('Parameter [min_players] must be a postive integer of a minimum value of 2.')
 		elif max_players > 10:
-			raise Exception('Parameter [maxPlayers] must be a positive integer less than or equal to 10.')
+			raise Exception('Parameter [max_players] must be a positive integer less than or equal to 10.')
 		elif min_players > max_players:
-			 raise Exception('Parameter [minPlayers] must be less than or equal to [maxPlayers].')
+			 raise Exception('Parameter [min_players] must be less than or equal to [maxPlayers].')
 
 
 	def __str__(self):
@@ -46,3 +47,25 @@ class Table(object):
 
 	def new_round():
 		pass
+
+	def add_player(player_name, chips):
+		if self.min_buy_in <= chips <= self.max_buy_in:
+			player = Player(player_name, chips, self)
+			self.players_to_add.append(player)
+
+		if self.auto_start and len(self.player) == 0 and len(self.players_to_add) >= self.min_players:
+			self.start_game()
+
+	def remove_player(player_name):
+		for index, player in enumerate(self.players):
+			if player.player_name == player_name:
+				self.players_to_remove.append(index)
+				player.fold()
+
+		for index, player in enumerate(self.players):
+			if player.player_name == player_name:
+				self.players_to_add.pop(index) # need to find equivalent of javascript splice method
+
+
+
+
