@@ -41,14 +41,24 @@ class Table(object):
 		', and maximum buy in ' + str(self.max_buy_in)
 
 	def start_game():
+		'''
+		Function to start a poker game after table has been initalized and
+		players have been added to the table
+		'''
 		if not self.game:
 			self.game = Game(self.small_blind, self.big_blind)
 			self.new_round()
 
 	def new_round():
+		'''
+		Function to start a new round in a game
+		'''
 		pass
 
 	def add_player(player_name, chips):
+		'''
+		Function to add a player to a game
+		'''
 		if self.min_buy_in <= chips <= self.max_buy_in:
 			player = Player(player_name, chips, self)
 			self.players_to_add.append(player)
@@ -57,6 +67,9 @@ class Table(object):
 			self.start_game()
 
 	def remove_player(player_name):
+		'''
+		Function to remove a player from a game
+		'''
 		for index, player in enumerate(self.players):
 			if player.player_name == player_name:
 				self.players_to_remove.append(index)
