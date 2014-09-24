@@ -2,6 +2,8 @@
 This module defines a class for the Poker Table for the game engine
 '''
 
+from game import Game
+
 class Table(object):
 	'''
 	Create a Table for a game of poker
@@ -36,3 +38,11 @@ class Table(object):
 		return 'Table has small blind ' + str(self.small_blind) + ', big blind ' \
 		+ str(self.big_blind) + ', minimum buy in ' + str(self.min_buy_in) + \
 		', and maximum buy in ' + str(self.max_buy_in)
+
+	def start_game():
+		if not self.game:
+			self.game = Game(self.small_blind, self.big_blind)
+			self.new_round()
+
+	def new_round():
+		pass
