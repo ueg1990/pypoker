@@ -52,7 +52,7 @@ def rank_comparator(a,b):
 	'''
 	return b - a
 
-def rank_kickets(ranks, number_of_cards):
+def rank_kickers(ranks, number_of_cards):
 	'''
 	Function that returns the total rank value of a given number of cards
 	'''
@@ -61,7 +61,7 @@ def rank_kickets(ranks, number_of_cards):
 	rank = ''
 
 	for index in xrange(len(ranks)):
-		rank = ranks[i:i+1]
+		rank = ranks[index:index+1]
 		if rank == 'A':
 			ranks_list.append(0.2048)
 		if rank == 'K':
@@ -88,12 +88,13 @@ def rank_kickets(ranks, number_of_cards):
 			ranks_list.append(0.0001)
 		if rank == '2':
 			ranks_list.append(0.0000)
-
-		ranks_list.sort(rank_comparator)
-		# Alternate for loop: sum(ranks_list[item] for item in xrange(number_of_cards))
-		for index in xrange(number_of_cards):
-			kicker_rank += ranks_list[index]
-		return kicker_rank
+	
+	ranks_list.sort()
+	ranks_list.reverse()
+	# Alternate for loop: sum(ranks_list[item] for item in xrange(number_of_cards))
+	for index in xrange(number_of_cards):
+		kicker_rank += ranks_list[index]
+	return kicker_rank
 
 def rank_hand(hand):
 	result = rank_hand_int(hand)
