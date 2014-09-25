@@ -7,11 +7,12 @@ from game import Game
 def main():
 	table = Table(50,100,2,10,100,1000)
 	player = Player('usman', 1000, table)
-	#deck = Deck()
+	deck = Deck()
+	game = Game(50,100)
 	# print table
-	# print deck
+	#print sorted(deck.deck)
 	# print player
-	print Game(50,100)
+	#print Game(50,100)
 	
 if __name__ == "__main__":
     main()

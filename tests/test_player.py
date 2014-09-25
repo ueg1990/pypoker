@@ -9,7 +9,7 @@ class PlayerTestCase(unittest.TestCase):
     def setUp(self):
         self.player = Player('usman', 1000, None)
 
-    def test_table_initialization(self):
+    def test_player_initialization(self):
     	self.assertEqual([self.player.player_name, self.player.chips], ['usman', 1000])
     
     def tearDown(self):

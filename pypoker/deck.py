@@ -78,3 +78,10 @@ class Deck(object):
 
 	def __str__(self):
 		return ' '.join(self.deck)
+
+	def __len__(self):
+		return len(self.deck)
+
+	def __iter__(self):
+		return iter(self.deck)
+		
