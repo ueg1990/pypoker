@@ -47,6 +47,9 @@ def check_for_bankrupt(table):
 	table.players = players_not_bankrupt
 
 def get_player_index(player):
+	'''
+	Function to return index of a given Player object
+	'''
 	player_index = -1
 	for index, item in enumerate(player.table.players):
 		if player = player.table.players[index]:
@@ -105,12 +108,18 @@ def rank_kickers(ranks, number_of_cards):
 	return kicker_rank
 
 def rank_hand(hand):
+	'''
+	Function to rank a given hand
+	'''
 	result = rank_hand_int(hand)
 	hand.rank = result.rank
 	hand.message = result.message
 	return hand
 
 def rank_hands(hands):
+	'''
+	Function to rank a given list of hands
+	'''
 	for hand in hands:
 		result = rank_hand_int(hand)
 		hand.rank = result.rank
@@ -118,4 +127,7 @@ def rank_hands(hands):
 	return hands
 
 def rank_hand_int(hand):
+	'''
+	Get rank valur of a given hand and return a Result object with appropriate message
+	'''
 	pass

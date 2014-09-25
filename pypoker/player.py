@@ -18,3 +18,36 @@ class Player(object):
 
 	def __str__(self):
 		return self.player_name + " has " + str(self.chips) + " chips"
+
+
+	def check(self):
+		'''
+		Function to allow player to check
+		'''
+		pass
+
+	def fold(self):
+		'''
+		Function to allow player to fold
+		'''
+		pass
+
+	def bet(self,amount):
+		'''
+		Function to allow player to place a bet of a given amount
+		'''
+		pass
+
+	def call(self):
+		'''
+		Function to allow player to call
+		'''
+		pass
+
+	def all_in(self):
+		'''
+		Function to allow player to go al in
+		'''
+		pass
+
+
