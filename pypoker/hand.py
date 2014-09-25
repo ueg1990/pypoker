@@ -9,3 +9,9 @@ class Hand(object):
 
 	def __str__(self):
 		return self.cards
+
+	def __len__(self):
+		return len(self.cards)
+
+	def __iter__(self):
+		return iter(self.cards)

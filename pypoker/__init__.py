@@ -13,7 +13,8 @@ __copyright__ = 'Copyright 2014 Usman Ehtesham Gul'
 
 from table import Table
 from player import Player
-from utils import *
+#from utils import *
+import utils
 from game import Game
 from deck import Deck
 from hand import Hand
