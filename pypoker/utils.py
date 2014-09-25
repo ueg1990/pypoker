@@ -46,6 +46,14 @@ def check_for_bankrupt(table):
 			players_not_bankrupt.append(table.players[index])
 	table.players = players_not_bankrupt
 
+def get_player_index(player):
+	player_index = -1
+	for index, item in enumerate(player.table.players):
+		if player = player.table.players[index]:
+			player_index = index
+
+	return player_index
+
 def rank_comparator(a,b):
 	'''
 	Comparator function to be used for sorting
