@@ -52,7 +52,7 @@ def get_player_index(player):
 	'''
 	player_index = -1
 	for index, item in enumerate(player.table.players):
-		if player = player.table.players[index]:
+		if player == player.table.players[index]:
 			player_index = index
 
 	return player_index

@@ -40,7 +40,7 @@ class Table(object):
 		+ str(self.big_blind) + ', minimum buy in ' + str(self.min_buy_in) + \
 		', and maximum buy in ' + str(self.max_buy_in)
 
-	def start_game():
+	def start_game(self):
 		'''
 		Function to start a poker game after table has been initalized and
 		players have been added to the table
@@ -49,13 +49,13 @@ class Table(object):
 			self.game = Game(self.small_blind, self.big_blind)
 			self.new_round()
 
-	def new_round():
+	def new_round(self):
 		'''
 		Function to start a new round in a game
 		'''
 		pass
 
-	def add_player(player_name, chips):
+	def add_player(self, player_name, chips):
 		'''
 		Function to add a player to a game
 		'''
@@ -66,7 +66,7 @@ class Table(object):
 		if self.auto_start and len(self.player) == 0 and len(self.players_to_add) >= self.min_players:
 			self.start_game()
 
-	def remove_player(player_name):
+	def remove_player(self, player_name):
 		'''
 		Function to remove a player from a game
 		'''

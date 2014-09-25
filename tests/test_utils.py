@@ -6,7 +6,7 @@ class UtilsTestCase(unittest.TestCase):
     Tests for the utils module
     '''
     def setUp(self):
-        pass
+        self.table = Table(50,100,2,10,100,1000)
 
     def test_get_max_bet(self):
     	self.assertEqual(utils.get_max_bet([100, 20,15,101, 30, 19]), 101)

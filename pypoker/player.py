@@ -19,7 +19,9 @@ class Player(object):
 	def __str__(self):
 		return self.player_name + " has " + str(self.chips) + " chips"
 
-
+	def __eq__(self, other):
+		return self.player_name == other.player_name and self.chips == other.chips and self.table == other.table
+	
 	def check(self):
 		'''
 		Function to allow player to check
