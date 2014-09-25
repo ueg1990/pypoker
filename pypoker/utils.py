@@ -110,5 +110,12 @@ def rank_hand(hand):
 	hand.message = result.message
 	return hand
 
+def rank_hands(hands):
+	for hand in hands:
+		result = rank_hand_int(hand)
+		hand.rank = result.rank
+		hand.message = result.message
+	return hands
+
 def rank_hand_int(hand):
 	pass
