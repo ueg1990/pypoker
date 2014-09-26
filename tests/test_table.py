@@ -22,7 +22,6 @@ class TableTestCase(unittest.TestCase):
         self.table.add_player('ehtesham', 1000)
         self.table.add_player('gul', 1000)
         self.table.start_game()
-        print "player_to_add: " + str(self.table.players_to_add)
         self.table.remove_player('ehtesham')
         
     def test_table_start_game(self):
