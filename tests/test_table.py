@@ -18,8 +18,13 @@ class TableTestCase(unittest.TestCase):
         self.assertEqual(self.table.players_to_add, [Player('usman', 1000, self.table), Player('ehtesham', 1000, self.table)])
 
     def test_table_remove_player(self):
-        pass
-
+        self.table.add_player('usman', 1000)
+        self.table.add_player('ehtesham', 1000)
+        self.table.add_player('gul', 1000)
+        self.table.start_game()
+        print "player_to_add: " + str(self.table.players_to_add)
+        self.table.remove_player('ehtesham')
+        
     def test_table_start_game(self):
         self.table.add_player('usman', 1000)
         self.table.add_player('ehtesham', 1000)

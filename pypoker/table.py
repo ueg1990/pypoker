@@ -118,4 +118,4 @@ class Table(object):
 
 		for index, player in enumerate(self.players):
 			if player.player_name == player_name:
-				self.players_to_add.pop(index) # need to find equivalent of javascript splice method
+				self.players_to_add.pop(index)
