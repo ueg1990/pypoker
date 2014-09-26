@@ -84,4 +84,7 @@ class Deck(object):
 
 	def __iter__(self):
 		return iter(self.deck)
+
+	def pop(self):
+		return self.deck.pop()
 		

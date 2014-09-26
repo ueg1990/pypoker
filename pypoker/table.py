@@ -45,9 +45,9 @@ class Table(object):
 		Function to start a poker game after table has been initalized and
 		players have been added to the table
 		'''
-		if not self.game:
-			self.game = Game(self.small_blind, self.big_blind)
-			self.new_round()
+		#if not self.game:
+		self.game = Game(self.small_blind, self.big_blind)
+		self.new_round()
 
 	def new_round(self):
 		'''
@@ -71,8 +71,10 @@ class Table(object):
 		for index, player in enumerate(self.players):
 			player.cards.append(self.game.deck.pop())
 			player.cards.append(self.game.deck.pop())
-			self.game.bets[index] = 0
-			self.game.round_bets[index] = 0
+			#self.game.bets[index] = 0
+			#self.game.round_bets[index] = 0
+			self.game.bets.append(0)
+			self.game.round_bets.append(0)
 
 		# Identify Small and Big Blind player indexes
 		small_blind = self.dealer + 1
@@ -87,7 +89,7 @@ class Table(object):
 		self.players[small_blind].chips -= self.small_blind
 		self.players[big_blind].chips -= self.big_blind
 		self.game.bets[small_blind] = self.small_blind
-		self.game_losers.bets[big_blind] = self.big_blind
+		self.game.bets[big_blind] = self.big_blind
 
 		# Get current player
 		self.current_player = self.dealer + 3

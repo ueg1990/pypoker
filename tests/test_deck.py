@@ -20,6 +20,10 @@ class DeckTestCase(unittest.TestCase):
     def test_deck_size(self):
     	self.assertEqual(len(self.deck), 52)
 
+    def test_deck_pop(self):
+        self.deck = sorted(self.deck)
+        self.assertEqual(self.deck.pop(), 'TS')
+
     def tearDown(self):
         pass
 

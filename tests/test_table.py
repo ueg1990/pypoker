@@ -1,5 +1,5 @@
 import unittest
-from pypoker import Table, Player
+from pypoker import Table, Player, Game
 
 class TableTestCase(unittest.TestCase):
     ''' 
@@ -21,10 +21,20 @@ class TableTestCase(unittest.TestCase):
         pass
 
     def test_table_start_game(self):
-        pass
+        self.table.add_player('usman', 1000)
+        self.table.add_player('ehtesham', 1000)
+        self.table.add_player('gul', 1000)
+        self.table.start_game()
+        self.assertEqual(self.table.current_player, 0)
+
 
     def test_table_new_round(self):
-        pass
+        self.table.add_player('usman', 1000)
+        self.table.add_player('ehtesham', 1000)
+        self.table.add_player('gul', 1000)
+        self.table.game = Game(self.table.small_blind, self.table.big_blind)
+        self.table.new_round()
+        self.assertEqual(self.table.current_player, 0)
 
     def tearDown(self):
         pass
