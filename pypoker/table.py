@@ -53,7 +53,46 @@ class Table(object):
 		'''
 		Function to start a new round in a game
 		'''
-		pass
+		remove_index = 0
+		for index, player in enumerate(self.players_to_add):
+			if remove_index < len(self.players_to_remove):
+				index_player = self.players_to_remove[remove_index]
+				self.players[index_player] = self.players_to_add[index]
+				remove_index += 1
+			else:
+				self.players.append(self.players_to_add[index])
+
+		self.players_to_add = []
+		self.players_to_remove = []
+		self.game_winners = []
+		self.game_losers = []
+
+		# Deal 2 cards to each player
+		for index, player in enumerate(self.players):
+			player.cards.append(self.game.deck.pop())
+			player.cards.append(self.game.deck.pop())
+			self.game.bets[index] = 0
+			self.game.round_bets[index] = 0
+
+		# Identify Small and Big Blind player indexes
+		small_blind = self.dealer + 1
+		if small_blind >= len(self.players):
+			small_blind = 0
+
+		big_blind = self.dealer + 2
+		if big_blind >= len(self.players):
+			big_blind -= len(self.players)
+
+		# Force blind bets
+		self.players[small_blind].chips -= self.small_blind
+		self.players[big_blind].chips -= self.big_blind
+		self.game.bets[small_blind] = self.small_blind
+		self.game_losers.bets[big_blind] = self.big_blind
+
+		# Get current player
+		self.current_player = self.dealer + 3
+		if self.current_player >= len(self.players):
+			self.current_player -= len(self.players)
 
 	def add_player(self, player_name, chips):
 		'''
@@ -78,7 +117,3 @@ class Table(object):
 		for index, player in enumerate(self.players):
 			if player.player_name == player_name:
 				self.players_to_add.pop(index) # need to find equivalent of javascript splice method
-
-
-
-

@@ -12,6 +12,21 @@ class PlayerTestCase(unittest.TestCase):
     def test_player_initialization(self):
     	self.assertEqual([self.player.player_name, self.player.chips], ['usman', 1000])
     
+    def test_player_check(self):
+        pass
+
+    def test_player_check(self):
+        pass
+
+    def test_player_check(self):
+        pass
+
+    def test_player_check(self):
+        pass
+
+    def test_player_all_in(self):
+        pass
+
     def tearDown(self):
         pass
 

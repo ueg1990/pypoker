@@ -17,6 +17,15 @@ class TableTestCase(unittest.TestCase):
         self.table.add_player('ehtesham', 1000)
         self.assertEqual(self.table.players_to_add, [Player('usman', 1000, self.table), Player('ehtesham', 1000, self.table)])
 
+    def test_table_remove_player(self):
+        pass
+
+    def test_table_start_game(self):
+        pass
+
+    def test_table_new_round(self):
+        pass
+
     def tearDown(self):
         pass
 
