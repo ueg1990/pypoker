@@ -2,6 +2,8 @@
 This module defines a class for a Player who will play poker in the game engine
 '''
 
+from utils import get_player_index, progress
+
 class Player(object):
 	'''
 	This class creates Player objects to play the game
@@ -26,7 +28,20 @@ class Player(object):
 		'''
 		Function to allow player to check
 		'''
-		pass
+		check_allow = True
+		player_index = get_player_index(self)
+		player_bet = self.table.game.bets[player_index]
+
+		for bet in self.table.game.bets:
+			if bet > player_bet:
+				check_allow = False
+
+		if check_allow:
+			self.talked = True
+			self.turn_bet = {'action': 'check', 'player_name': self.player_name}
+			progress(self.table)
+		else:
+			print 'Check not allowed, replay please'
 
 	def fold(self):
 		'''
