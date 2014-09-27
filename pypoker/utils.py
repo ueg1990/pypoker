@@ -57,6 +57,9 @@ def get_player_index(player):
 
 	return player_index
 
+def progress(table):
+	pass
+
 def rank_comparator(a,b):
 	'''
 	Comparator function to be used for sorting
