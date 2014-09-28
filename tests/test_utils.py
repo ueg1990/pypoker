@@ -25,6 +25,21 @@ class UtilsTestCase(unittest.TestCase):
     	index = utils.get_player_index(Player('ehtesham', 1000, self.table))
     	self.assertEqual(index, 1)
 
+    def test_check_for_winner(self):
+        pass
+
+    def test_check_for_end_of_round(self):
+        pass
+
+    def test_check_for_all_in_players(self):
+        pass
+
+    def test_check_for_bankrupt(self):
+        pass
+
+    def test_progress(self):
+        pass
+
     def tearDown(self):
         pass
 
