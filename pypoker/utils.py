@@ -9,6 +9,61 @@ def get_max_bet(list_of_bets):
 	'''
 	return max(list_of_bets)
 
+def check_for_winner(table):
+	winners = []
+	max_rank = 0.000
+	for index,player in enumerate(table.players):
+		if player.hand.rank == max_rank and not player.folded:
+			winners.append(index)
+
+		if player.hand.rank > max_rank and not player.folded:
+			max_rank = player.hand.rank
+			winners = []
+			winners.append(index)
+
+	part = 0
+	prize = 0
+	all_in_players = check_for_all_in_players(table, winners)
+	if len(all_in_players):
+		min_bets = table.game.round_bets[winners[0]]
+		for index in xrange(1, len(all_in_players)):
+			if table.game.round_bets[winners[index]] != 0 and table.game.round_bets[winners[index]] < min_bets:
+				min_bets = table.game.round_bets[winners[index]]
+		if min_bets:
+			part = min_bets
+		else:
+			part = 0
+	else:
+		if table.game.round_bets[winners[0]]:
+			part = table.game.round_bets[winners[0]]
+		else:
+			part = 0
+
+	for index,bet in enumerate(table.game.round_bets):
+		if table.game.round_bets[index] > part :
+			prize += part
+			table.game.round_bets[index] -= part
+		else:
+			prize += table.game.round_bets[index]
+			table.game.round_bets[index] = 0
+
+	for index, winner in enumerate(winners):
+		winner_prize = float(prize) / len(winners)
+		winning_player = table.players[winner]
+		winning_player.chips += winner_prize
+		if table.game.round_bets[winners[index]] == 0:
+			winning_player.folded = True
+			table.game_winners.append({'player_name' : winning_player.player_name, 'amount' : winner_prize,
+				'hand' : winning_player.hand, 'chips' : winning_player.chips})
+		print 'player ' + table.players[winners[i]].player_name + ' wins !!!'
+
+	round_end = True
+	for index, bet in enumerate(table.game.round_bets):
+		if bet != 0:
+			round_end = False
+	if not round_end:
+		check_for_winner(table)
+
 def check_for_end_of_round(table):
 	'''
 	Function checks if the current round has ended
@@ -23,7 +78,7 @@ def check_for_end_of_round(table):
 					end_of_round = False
 	return end_of_round
 
-def check_for_all_in_player(table, winners):
+def check_for_all_in_players(table, winners):
 	'''
 	Function that returns a list of players that wnet all in
 	'''
