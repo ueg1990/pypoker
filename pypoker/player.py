@@ -39,6 +39,7 @@ class Player(object):
 		if check_allow:
 			self.talked = True
 			self.turn_bet = {'action': 'check', 'player_name': self.player_name}
+			# Attempt to progress the game
 			progress(self.table)
 		else:
 			print 'Check not allowed, replay please'
@@ -60,8 +61,7 @@ class Player(object):
 		# Mark the player as folded
 		self.folded = True
 		self.turn_bet = {'action': 'fold', 'player_name': self.player_name}
-
-		# Attemp to progress the game
+		# Attempt to progress the game
 		progress(self.table)
 
 
@@ -108,6 +108,17 @@ class Player(object):
 		'''
 		Function to allow player to go al in
 		'''
-		pass
+		for index, player in enumerate(self.table.players):
+			if self == player:
+				if player.chips != 0:
+					all_in_value = player.chips
+					self.table.game.bets[index] += player.chips
+					player.chips = 0
+					self.all_in = True
+					self.talked = True
+		self.turn_bet = {'action': 'all_in', 'player_name': self.player_name, 'amount' : all_in_value}
+		# Attempt to progress the game
+		progress(self.table)
+
 
 
