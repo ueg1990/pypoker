@@ -47,7 +47,23 @@ class Player(object):
 		'''
 		Function to allow player to fold
 		'''
-		pass
+		for index, player in enumerate(self.table.players):
+			if self == player:
+				if self.table.game.bets[index]:
+					bet = self.table.game.bets[index]
+				else:
+					bet = 0
+				self.table.game.bets[index] = 0
+				self.table.game.pot += bet
+				self.talked = 0
+
+		# Mark the player as folded
+		self.folded = True
+		self.turn_bet = {'action': 'check', 'player_name': self.player_name}
+
+		# Attemp to progress the game
+		progress(self.table)
+
 
 	def bet(self,amount):
 		'''
