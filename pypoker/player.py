@@ -55,11 +55,11 @@ class Player(object):
 					bet = 0
 				self.table.game.bets[index] = 0
 				self.table.game.pot += bet
-				self.talked = 0
+				self.talked = True
 
 		# Mark the player as folded
 		self.folded = True
-		self.turn_bet = {'action': 'check', 'player_name': self.player_name}
+		self.turn_bet = {'action': 'fold', 'player_name': self.player_name}
 
 		# Attemp to progress the game
 		progress(self.table)
@@ -69,7 +69,19 @@ class Player(object):
 		'''
 		Function to allow player to place a bet of a given amount
 		'''
-		pass
+		if self.chips > amount:
+			for index,player in enumerate(this.table.players):
+				if self == player:
+					self.table.game.bets[index] += amount
+					player.chips -= amount
+					self.talked = True
+
+			self.turn_bet = {'action': 'bet', 'player_name': self.player_name, 'amount' : amount}
+			# Attemp to progress the game
+			progress(self.table)
+		else:
+			print 'You don\'t have enought chips --> ALL IN !!!'
+			self.all_in()
 
 	def call(self):
 		'''
