@@ -2,7 +2,7 @@
 This module defines a class for a Player who will play poker in the game engine
 '''
 
-from utils import get_player_index, progress
+from utils import get_player_index, progress, get_max_bet
 
 class Player(object):
 	'''
@@ -70,7 +70,7 @@ class Player(object):
 		Function to allow player to place a bet of a given amount
 		'''
 		if self.chips > amount:
-			for index,player in enumerate(this.table.players):
+			for index,player in enumerate(self.table.players):
 				if self == player:
 					self.table.game.bets[index] += amount
 					player.chips -= amount
@@ -80,14 +80,29 @@ class Player(object):
 			# Attemp to progress the game
 			progress(self.table)
 		else:
-			print 'You don\'t have enought chips --> ALL IN !!!'
+			print 'You don\'t have enough chips --> ALL IN !!!'
 			self.all_in()
 
 	def call(self):
 		'''
 		Function to allow player to call
 		'''
-		pass
+		max_bet = get_max_bet
+		if self.chips > max_bet:
+			# Match the highest bet
+			for index, player in enumerate(self.table.players):
+				if self == player:
+					if self.table.game.bets[index] >= 0:
+						self.chips += self.table.game.bets[index]
+					self.chips -= max_bet
+					self.table.game.bets[index] = max_bet
+					self.talked = True
+			self.turn_bet = {'action': 'call', 'player_name': self.player_name, 'amount' : max_bet}
+			# Attempt to progress the game
+			progress(self.table)
+		else:
+			print 'You don\'t have enough chips --> ALL IN !!!'
+			self.all_in()
 
 	def all_in(self):
 		'''
