@@ -1038,6 +1038,63 @@ def rank_hand_int(hand):
 			rank += rank_kickers(ranks,5)
 
 
+		# Straight
+		if rank == 0:
+			if (cards.index('T') > -1 and cards.index('J') > -1 and 
+				cards.index('Q') > -1 and cards.index('K') > -1 and
+				cards.index('A') > -1):
+				rank == 122
+
+			if (cards.index('9') > -1 and cards.index('T') > -1 and 
+				cards.index('J') > -1 and cards.index('Q') > -1 and
+				cards.index('K') > -1 and rank == 0):
+				rank == 121
+
+			if (cards.index('8') > -1 and cards.index('9') > -1 and 
+				cards.index('T') > -1 and cards.index('J') > -1 and
+				cards.index('Q') > -1 and rank == 0):
+				rank == 120
+
+			if (cards.index('7') > -1 and cards.index('8') > -1 and 
+				cards.index('9') > -1 and cards.index('T') > -1 and
+				cards.index('J') > -1 and rank == 0):
+				rank == 119
+
+			if (cards.index('6') > -1 and cards.index('7') > -1 and 
+				cards.index('8') > -1 and cards.index('9') > -1 and
+				cards.index('T') > -1 and rank == 0):
+				rank == 118
+
+			if (cards.index('5') > -1 and cards.index('6') > -1 and 
+				cards.index('7') > -1 and cards.index('8') > -1 and
+				cards.index('9') > -1 and rank == 0):
+				rank == 117
+
+			if (cards.index('4') > -1 and cards.index('5') > -1 and 
+				cards.index('6') > -1 and cards.index('7') > -1 and
+				cards.index('8') > -1 and rank == 0):
+				rank == 116
+
+			if (cards.index('3') > -1 and cards.index('4') > -1 and 
+				cards.index('5') > -1 and cards.index('6') > -1 and
+				cards.index('7') > -1 and rank == 0):
+				rank == 115
+
+			if (cards.index('2') > -1 and cards.index('3') > -1 and 
+				cards.index('4') > -1 and cards.index('5') > -1 and
+				cards.index('6') > -1 and rank == 0):
+				rank == 114
+
+			if (cards.index('A') > -1 and cards.index('2') > -1 and 
+				cards.index('3') > -1 and cards.index('4') > -1 and
+				cards.index('5') > -1 and rank == 0):
+				rank == 113
+
+			if rank != 0:
+				message = 'Straight'
+
+
+
 
 
 		
