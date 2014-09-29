@@ -2,6 +2,7 @@
 This module contains a set of helper functions that will be used in the 
 implementation of the poker game engie
 '''
+from hand import Hand
 
 def get_max_bet(list_of_bets):
 	'''
@@ -112,9 +113,6 @@ def get_player_index(player):
 
 	return player_index
 
-def progress(table):
-	pass
-
 def rank_comparator(a,b):
 	'''
 	Comparator function to be used for sorting
@@ -188,4 +186,795 @@ def rank_hand_int(hand):
 	'''
 	Get rank valur of a given hand and return a Result object with appropriate message
 	'''
-	pass
+	rank = 0.0000
+	message = ''
+	hand_ranks = []
+	hand_suits = []
+
+	for index, card in enumerate(hand.cards):
+		hand_ranks[index] = card[0]
+		hand_suits[index] = card[1]
+
+	# Verify the following 3 lines - Very Important!!!
+	ranks = ','.join(sorted(hand_ranks)) # Replace non-wirds with ''
+	suits = ','.join(sorted(hand_suits)) # Replace non-wirds with ''
+	cards = ','.join(hand.cards)
+
+	# Four of a kind
+	if rank == 0:
+		if ranks.index('AAAA') > -1:
+			rank = 292 + rank_kickers(ranks.replace('AAAA',''), 1)
+
+		if ranks.index('KKKK') > -1 and rank == 0:
+			rank = 291 + rank_kickers(ranks.replace('KKKK',''), 1)
+
+		if ranks.index('QQQQ') > -1 and rank == 0:
+			rank = 290 + rank_kickers(ranks.replace('QQQQ',''), 1)
+
+		if ranks.index('JJJJ') > -1 and rank == 0:
+			rank = 289 + rank_kickers(ranks.replace('JJJJ',''), 1)
+
+		if ranks.index('TTTT') > -1 and rank == 0:
+			rank = 288 + rank_kickers(ranks.replace('TTTT',''), 1)
+
+		if ranks.index('9999') > -1 and rank == 0:
+			rank = 287 + rank_kickers(ranks.replace('9999',''), 1)
+
+		if ranks.index('8888') > -1 and rank == 0:
+			rank = 286 + rank_kickers(ranks.replace('8888',''), 1)
+
+		if ranks.index('7777') > -1 and rank == 0:
+			rank = 285 + rank_kickers(ranks.replace('7777',''), 1)
+
+		if ranks.index('6666') > -1 and rank == 0:
+			rank = 284 + rank_kickers(ranks.replace('6666',''), 1)
+
+		if ranks.index('5555') > -1 and rank == 0:
+			rank = 283 + rank_kickers(ranks.replace('5555',''), 1)
+
+		if ranks.index('4444') > -1 and rank == 0:
+			rank = 282 + rank_kickers(ranks.replace('4444',''), 1)
+
+		if ranks.index('3333') > -1 and rank == 0:
+			rank = 281 + rank_kickers(ranks.replace('3333',''), 1)
+
+		if ranks.index('2222') > -1 and rank == 0:
+			rank = 280 + rank_kickers(ranks.replace('2222',''), 1)
+
+		if rank:
+			message = 'Four of a kind'
+
+	# Full House
+	if rank == 0:
+		if ranks.index('AAA') > -1 and ranks.index('KK') > -1:
+			rank = 279
+
+		if ranks.index('AAA') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 278
+
+		if ranks.index('AAA') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 277
+
+		if ranks.index('AAA') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 276
+
+		if ranks.index('AAA') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 275
+
+		if ranks.index('AAA') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 274
+
+		if ranks.index('AAA') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 273
+
+		if ranks.index('AAA') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 272
+
+		if ranks.index('AAA') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 271
+
+		if ranks.index('AAA') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 270
+
+		if ranks.index('AAA') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 269
+
+		if ranks.index('AAA') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 268
+
+		if ranks.index('KKK') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 267
+
+		if ranks.index('KKK') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 266
+
+		if ranks.index('KKK') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 265
+
+		if ranks.index('KKK') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 264
+
+		if ranks.index('KKK') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 263
+
+		if ranks.index('KKK') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 262
+
+		if ranks.index('KKK') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 261
+
+		if ranks.index('KKK') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 260
+
+		if ranks.index('KKK') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 259
+
+		if ranks.index('KKK') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 258
+
+		if ranks.index('KKK') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 257
+
+		if ranks.index('KKK') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 256
+
+		if ranks.index('QQQ') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 255
+
+		if ranks.index('QQQ') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 254
+
+		if ranks.index('QQQ') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 253
+
+		if ranks.index('QQQ') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 252
+
+		if ranks.index('QQQ') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 251
+
+		if ranks.index('QQQ') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 250
+
+		if ranks.index('QQQ') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 249
+
+		if ranks.index('QQQ') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 248
+
+		if ranks.index('QQQ') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 247
+
+		if ranks.index('QQQ') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 246
+
+		if ranks.index('QQQ') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 245
+
+		if ranks.index('QQQ') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 244
+
+		if ranks.index('JJJ') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 243
+
+		if ranks.index('JJJ') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 242
+
+		if ranks.index('JJJ') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 241
+
+		if ranks.index('JJJ') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 240
+
+		if ranks.index('JJJ') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 239
+
+		if ranks.index('JJJ') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 238
+
+		if ranks.index('JJJ') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 237
+
+		if ranks.index('JJJ') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 236
+
+		if ranks.index('JJJ') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 235
+
+		if ranks.index('JJJ') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 234
+
+		if ranks.index('JJJ') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 233
+
+		if ranks.index('JJJ') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 232
+
+		if ranks.index('TTT') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 231
+
+		if ranks.index('TTT') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 230
+
+		if ranks.index('TTT') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 229
+
+		if ranks.index('TTT') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 228
+
+		if ranks.index('TTT') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 227
+
+		if ranks.index('TTT') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 226
+
+		if ranks.index('TTT') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 225
+
+		if ranks.index('TTT') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 224
+
+		if ranks.index('TTT') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 223
+
+		if ranks.index('TTT') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 222
+
+		if ranks.index('TTT') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 221
+
+		if ranks.index('TTT') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 220
+
+		if ranks.index('999') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 219
+
+		if ranks.index('999') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 218
+
+		if ranks.index('999') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 217
+
+		if ranks.index('999') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 216
+
+		if ranks.index('999') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 215
+
+		if ranks.index('999') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 214
+
+		if ranks.index('999') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 213
+
+		if ranks.index('999') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 212
+
+		if ranks.index('999') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 211
+
+		if ranks.index('999') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 210
+
+		if ranks.index('999') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 209
+
+		if ranks.index('999') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 208
+
+		if ranks.index('888') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 207
+
+		if ranks.index('888') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 206
+
+		if ranks.index('888') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 205
+
+		if ranks.index('888') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 204
+
+		if ranks.index('888') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 203
+
+		if ranks.index('888') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 202
+
+		if ranks.index('888') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 201
+
+		if ranks.index('888') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 200
+
+		if ranks.index('888') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 199
+
+		if ranks.index('888') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 198
+
+		if ranks.index('888') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 197
+
+		if ranks.index('888') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 196
+
+		if ranks.index('777') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 195
+
+		if ranks.index('777') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 194
+
+		if ranks.index('777') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 193
+
+		if ranks.index('777') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 192
+
+		if ranks.index('777') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 191
+
+		if ranks.index('777') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 190
+
+		if ranks.index('777') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 189
+
+		if ranks.index('777') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 188
+
+		if ranks.index('777') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 187
+
+		if ranks.index('777') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 186
+
+		if ranks.index('777') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 185
+
+		if ranks.index('777') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 184
+
+		if ranks.index('666') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 183
+
+		if ranks.index('666') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 182
+
+		if ranks.index('666') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 181
+
+		if ranks.index('666') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 180
+
+		if ranks.index('666') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 179
+
+		if ranks.index('666') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 178
+
+		if ranks.index('666') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 177
+
+		if ranks.index('666') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 176
+
+		if ranks.index('666') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 175
+
+		if ranks.index('666') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 174
+
+		if ranks.index('666') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 173
+
+		if ranks.index('666') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 172
+
+		if ranks.index('555') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 171
+
+		if ranks.index('555') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 170
+
+		if ranks.index('555') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 169
+
+		if ranks.index('555') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 168
+
+		if ranks.index('555') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 167
+
+		if ranks.index('555') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 166
+
+		if ranks.index('555') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 165
+
+		if ranks.index('555') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 164
+
+		if ranks.index('555') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 163
+
+		if ranks.index('555') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 162
+
+		if ranks.index('555') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 161
+
+		if ranks.index('555') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 160
+
+		if ranks.index('444') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 159
+
+		if ranks.index('444') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 158
+
+		if ranks.index('444') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 157
+
+		if ranks.index('444') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 156
+
+		if ranks.index('444') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 155
+
+		if ranks.index('444') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 154
+
+		if ranks.index('444') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 153
+
+		if ranks.index('444') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 152
+
+		if ranks.index('444') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 151
+
+		if ranks.index('444') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 150
+
+		if ranks.index('444') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 149
+
+		if ranks.index('444') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 148
+
+		if ranks.index('333') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 147
+
+		if ranks.index('333') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 146
+
+		if ranks.index('333') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 145
+
+		if ranks.index('333') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 144
+
+		if ranks.index('333') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 143
+
+		if ranks.index('333') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 142
+
+		if ranks.index('333') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 141
+
+		if ranks.index('333') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 140
+
+		if ranks.index('333') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 139
+
+		if ranks.index('333') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 138
+
+		if ranks.index('333') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 137
+
+		if ranks.index('333') > -1 and ranks.index('22') > -1 and rank == 0:
+			rank = 136
+
+		if ranks.index('222') > -1 and ranks.index('AA') > -1 and rank == 0:
+			rank = 135
+
+		if ranks.index('222') > -1 and ranks.index('KK') > -1 and rank == 0:
+			rank = 134
+
+		if ranks.index('222') > -1 and ranks.index('QQ') > -1 and rank == 0:
+			rank = 133
+
+		if ranks.index('222') > -1 and ranks.index('JJ') > -1 and rank == 0:
+			rank = 132
+
+		if ranks.index('222') > -1 and ranks.index('TT') > -1 and rank == 0:
+			rank = 131
+
+		if ranks.index('222') > -1 and ranks.index('99') > -1 and rank == 0:
+			rank = 130
+
+		if ranks.index('222') > -1 and ranks.index('88') > -1 and rank == 0:
+			rank = 129
+
+		if ranks.index('222') > -1 and ranks.index('77') > -1 and rank == 0:
+			rank = 128
+
+		if ranks.index('222') > -1 and ranks.index('66') > -1 and rank == 0:
+			rank = 127
+
+		if ranks.index('222') > -1 and ranks.index('55') > -1 and rank == 0:
+			rank = 126
+
+		if ranks.index('222') > -1 and ranks.index('44') > -1 and rank == 0:
+			rank = 125
+
+		if ranks.index('222') > -1 and ranks.index('33') > -1 and rank == 0:
+			rank = 124
+
+		if rank != 0:
+			message = 'Full House'
+
+	# Flush 
+	if rank == 0:
+		if suits.index('CCCCC') > -1 or suits.index('DDDDD') > -1 or 
+		suits.index('HHHHH') > -1 or suits.index('SSSS') > -1: 
+			rank = 123
+			message = Flush
+
+		# Straight Flush
+		if cards.index('TC') > -1 and cards.index('JC') > -1 and
+		cards.index('QC') > -1 and cards.index('KC') > -1 and
+		cards.index('AC') > -1 and rank = 123:
+		    rank = 302
+		    message = 'Straight Flush'
+
+		if cards.index('TD') > -1 and cards.index('JD') > -1 and
+		cards.index('QD') > -1 and cards.index('KD') > -1 and
+		cards.index('AD') > -1 and rank = 123:
+		    rank = 302
+		    message = 'Straight Flush'
+
+		if cards.index('TH') > -1 and cards.index('JH') > -1 and
+		cards.index('QH') > -1 and cards.index('KH') > -1 and
+		cards.index('AH') > -1 and rank = 123:
+		    rank = 302
+		    message = 'Straight Flush'
+
+		if cards.index('TS') > -1 and cards.index('JS') > -1 and
+		cards.index('QS') > -1 and cards.index('KS') > -1 and
+		cards.index('AS') > -1 and rank = 123:
+		    rank = 302
+		    message = 'Straight Flush'
+
+		if cards.index('9C') > -1 and cards.index('TC') > -1 and
+		cards.index('JC') > -1 and cards.index('QC') > -1 and
+		cards.index('KC') > -1 and rank = 123:
+		    rank = 301
+		    message = 'Straight Flush'
+
+		if cards.index('9D') > -1 and cards.index('TD') > -1 and
+		cards.index('JD') > -1 and cards.index('QD') > -1 and
+		cards.index('KD') > -1 and rank = 123:
+		    rank = 301
+		    message = 'Straight Flush'
+
+		if cards.index('9H') > -1 and cards.index('TH') > -1 and
+		cards.index('JH') > -1 and cards.index('QH') > -1 and
+		cards.index('KH') > -1 and rank = 123:
+		    rank = 301
+		    message = 'Straight Flush'
+
+		if cards.index('9S') > -1 and cards.index('TS') > -1 and
+		cards.index('JS') > -1 and cards.index('QS') > -1 and
+		cards.index('KS') > -1 and rank = 123:
+		    rank = 301
+		    message = 'Straight Flush'
+
+		if cards.index('8C') > -1 and cards.index('9C') > -1 and
+		cards.index('TC') > -1 and cards.index('JC') > -1 and
+		cards.index('QC') > -1 and rank = 123:
+		    rank = 300
+		    message = 'Straight Flush'
+
+		if cards.index('8D') > -1 and cards.index('9D') > -1 and
+		cards.index('TD') > -1 and cards.index('JD') > -1 and
+		cards.index('QD') > -1 and rank = 123:
+		    rank = 300
+		    message = 'Straight Flush'
+
+		if cards.index('8H') > -1 and cards.index('9H') > -1 and
+		cards.index('TH') > -1 and cards.index('JH') > -1 and
+		cards.index('QH') > -1 and rank = 123:
+		    rank = 300
+		    message = 'Straight Flush'
+
+		if cards.index('8S') > -1 and cards.index('9S') > -1 and
+		cards.index('TS') > -1 and cards.index('JS') > -1 and
+		cards.index('QS') > -1 and rank = 123:
+		    rank = 300
+		    message = 'Straight Flush'
+
+		if cards.index('7C') > -1 and cards.index('8C') > -1 and
+		cards.index('9C') > -1 and cards.index('TC') > -1 and
+		cards.index('JC') > -1 and rank = 123:
+		    rank = 299
+		    message = 'Straight Flush'
+
+		if cards.index('7D') > -1 and cards.index('8D') > -1 and
+		cards.index('9D') > -1 and cards.index('TD') > -1 and
+		cards.index('JD') > -1 and rank = 123:
+		    rank = 299
+		    message = 'Straight Flush'
+
+		if cards.index('7H') > -1 and cards.index('8H') > -1 and
+		cards.index('9H') > -1 and cards.index('TH') > -1 and
+		cards.index('JH') > -1 and rank = 123:
+		    rank = 299
+		    message = 'Straight Flush'
+
+		if cards.index('7S') > -1 and cards.index('8S') > -1 and
+		cards.index('9S') > -1 and cards.index('TS') > -1 and
+		cards.index('JS') > -1 and rank = 123:
+		    rank = 299
+		    message = 'Straight Flush'
+
+		if cards.index('6C') > -1 and cards.index('7C') > -1 and
+		cards.index('8C') > -1 and cards.index('9C') > -1 and
+		cards.index('TC') > -1 and rank = 123:
+		    rank = 298
+		    message = 'Straight Flush'
+
+		if cards.index('6D') > -1 and cards.index('7D') > -1 and
+		cards.index('8D') > -1 and cards.index('9D') > -1 and
+		cards.index('TD') > -1 and rank = 123:
+		    rank = 298
+		    message = 'Straight Flush'
+
+		if cards.index('6H') > -1 and cards.index('7H') > -1 and
+		cards.index('8H') > -1 and cards.index('9H') > -1 and
+		cards.index('TH') > -1 and rank = 123:
+		    rank = 298
+		    message = 'Straight Flush'
+
+		if cards.index('6S') > -1 and cards.index('7S') > -1 and
+		cards.index('8S') > -1 and cards.index('9S') > -1 and
+		cards.index('TS') > -1 and rank = 123:
+		    rank = 298
+		    message = 'Straight Flush'
+
+		if cards.index('5C') > -1 and cards.index('6C') > -1 and
+		cards.index('7C') > -1 and cards.index('8C') > -1 and
+		cards.index('9C') > -1 and rank = 123:
+		    rank = 297
+		    message = 'Straight Flush'
+
+		if cards.index('5D') > -1 and cards.index('6D') > -1 and
+		cards.index('7D') > -1 and cards.index('8D') > -1 and
+		cards.index('9D') > -1 and rank = 123:
+		    rank = 297
+		    message = 'Straight Flush'
+
+		if cards.index('5H') > -1 and cards.index('6H') > -1 and
+		cards.index('7H') > -1 and cards.index('8H') > -1 and
+		cards.index('9H') > -1 and rank = 123:
+		    rank = 297
+		    message = 'Straight Flush'
+
+		if cards.index('5S') > -1 and cards.index('6S') > -1 and
+		cards.index('7S') > -1 and cards.index('8S') > -1 and
+		cards.index('9S') > -1 and rank = 123:
+		    rank = 297
+		    message = 'Straight Flush'
+
+		if cards.index('4C') > -1 and cards.index('5C') > -1 and
+		cards.index('6C') > -1 and cards.index('7C') > -1 and
+		cards.index('8C') > -1 and rank = 123:
+		    rank = 296
+		    message = 'Straight Flush'
+
+		if cards.index('4D') > -1 and cards.index('5D') > -1 and
+		cards.index('6D') > -1 and cards.index('7D') > -1 and
+		cards.index('8D') > -1 and rank = 123:
+		    rank = 296
+		    message = 'Straight Flush'
+
+		if cards.index('4H') > -1 and cards.index('5H') > -1 and
+		cards.index('6H') > -1 and cards.index('7H') > -1 and
+		cards.index('8H') > -1 and rank = 123:
+		    rank = 296
+		    message = 'Straight Flush'
+
+		if cards.index('4S') > -1 and cards.index('5S') > -1 and
+		cards.index('6S') > -1 and cards.index('7S') > -1 and
+		cards.index('8S') > -1 and rank = 123:
+		    rank = 296
+		    message = 'Straight Flush'
+
+		if cards.index('3C') > -1 and cards.index('4C') > -1 and
+		cards.index('5C') > -1 and cards.index('6C') > -1 and
+		cards.index('7C') > -1 and rank = 123:
+		    rank = 295
+		    message = 'Straight Flush'
+
+		if cards.index('3D') > -1 and cards.index('4D') > -1 and
+		cards.index('5D') > -1 and cards.index('6D') > -1 and
+		cards.index('7D') > -1 and rank = 123:
+		    rank = 295
+		    message = 'Straight Flush'
+
+		if cards.index('3H') > -1 and cards.index('4H') > -1 and
+		cards.index('5H') > -1 and cards.index('6H') > -1 and
+		cards.index('7H') > -1 and rank = 123:
+		    rank = 295
+		    message = 'Straight Flush'
+
+		if cards.index('3S') > -1 and cards.index('4S') > -1 and
+		cards.index('5S') > -1 and cards.index('6S') > -1 and
+		cards.index('7S') > -1 and rank = 123:
+		    rank = 295
+		    message = 'Straight Flush'
+
+		if cards.index('2C') > -1 and cards.index('3C') > -1 and
+		cards.index('4C') > -1 and cards.index('5C') > -1 and
+		cards.index('6C') > -1 and rank = 123:
+		    rank = 294
+		    message = 'Straight Flush'
+
+		if cards.index('2D') > -1 and cards.index('3D') > -1 and
+		cards.index('4D') > -1 and cards.index('5D') > -1 and
+		cards.index('6D') > -1 and rank = 123:
+		    rank = 294
+		    message = 'Straight Flush'
+
+		if cards.index('2H') > -1 and cards.index('3H') > -1 and
+		cards.index('4H') > -1 and cards.index('5H') > -1 and
+		cards.index('6H') > -1 and rank = 123:
+		    rank = 294
+		    message = 'Straight Flush'
+
+		if cards.index('2S') > -1 and cards.index('3S') > -1 and
+		cards.index('4S') > -1 and cards.index('5S') > -1 and
+		cards.index('6S') > -1 and rank = 123:
+		    rank = 294
+		    message = 'Straight Flush'
+
+		if cards.index('AC') > -1 and cards.index('2C') > -1 and
+		cards.index('3C') > -1 and cards.index('4C') > -1 and
+		cards.index('5C') > -1 and rank = 123:
+		    rank = 294
+		    message = 'Straight Flush'
+
+		if cards.index('AD') > -1 and cards.index('2D') > -1 and
+		cards.index('3D') > -1 and cards.index('4D') > -1 and
+		cards.index('5D') > -1 and rank = 123:
+		    rank = 293
+		    message = 'Straight Flush'
+
+		if cards.index('AH') > -1 and cards.index('2H') > -1 and
+		cards.index('3H') > -1 and cards.index('4H') > -1 and
+		cards.index('5H') > -1 and rank = 123:
+		    rank = 293
+		    message = 'Straight Flush'
+
+		if cards.index('AS') > -1 and cards.index('2S') > -1 and
+		cards.index('3S') > -1 and cards.index('4S') > -1 and
+		cards.index('5S') > -1 and rank = 123:
+		    rank = 293
+		    message = 'Straight Flush'
+
+		if rank == 123:
+			rank += rank_kickers(ranks,5)
+
+
+
+
+		
+
+		
+
+
+
+
