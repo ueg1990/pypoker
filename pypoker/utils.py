@@ -113,6 +113,75 @@ def get_player_index(player):
 
 	return player_index
 
+def progress(table):
+	if table.game: 
+		if check_for_end_of_round:
+			# Move all bets to the pot
+			for index,bet in enumerate(table.game.bets):
+				if table.game.bets[index]:
+					table.game.pot +=  table.game.bets[index]
+					table.game.round_bets += table.game.bets[index]
+
+			if table.game.round_name == 'River':
+				table.game.round_name = 'Showdown'
+				table.game.bets = [] # Need to verify this is equivalent to javacript splice
+
+				# Evaluate each hand
+				for index, player in enumerate(table.players):
+					cards = table.players[index].cards + table.game.board
+					hand = Hand(cards)
+					table.players[index].hand = rank_hand(hand)
+				check_for_winner(table)
+				check_for_bankrupt(table)
+				print 'Game Over'
+
+			elif table.game.round_name == 'Turn':
+				print 'effective turn'
+				table.game.round_name = 'River'
+				# Burn a card
+				table.game.deck.pop()
+				# Turn a card
+				table.game.board.append(table.game.deck.pop())
+
+				table.game.bets = [0] * len(table.game.bets)				
+				for index in range(len(table.players)):
+					table.players[index].talked = False
+
+				print 'deal'
+			
+			elif table.game.round_name == 'Flop':
+				print 'effective flop'
+				table.game.round_name = 'Turn'
+				table.game.deck.pop()
+				# Turn a card
+				table.game.board.append(table.game.deck.pop())
+
+				table.game.bets = [0] * len(table.game.bets)				
+				for index in range(len(table.players)):
+					table.players[index].talked = False
+
+				print 'deal'
+
+			elif table.game.round_name == 'Deal':
+				print 'effective deal'
+				table.game.round_name = 'Flop'
+				table.game.deck.pop()
+				# Turn three cards
+				for index in xrange(3):
+					table.game.board.append(table.game.deck.pop())
+
+				table.game.bets = [0] * len(table.game.bets)				
+				for index in range(len(table.players)):
+					table.players[index].talked = False
+
+				print 'deal'
+
+			if table.current_player >= len(table.players) - 1:
+				table.current_player = 0
+			else:
+				table.current_player += 1
+
+
 def rank_comparator(a,b):
 	'''
 	Comparator function to be used for sorting
