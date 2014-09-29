@@ -788,249 +788,249 @@ def rank_hand_int(hand):
 
 	# Flush 
 	if rank == 0:
-		if suits.index('CCCCC') > -1 or suits.index('DDDDD') > -1 or 
-		suits.index('HHHHH') > -1 or suits.index('SSSS') > -1: 
+		if (suits.index('CCCCC') > -1 or suits.index('DDDDD') > -1 or 
+		suits.index('HHHHH') > -1 or suits.index('SSSS') > -1): 
 			rank = 123
 			message = Flush
 
 		# Straight Flush
-		if cards.index('TC') > -1 and cards.index('JC') > -1 and
+		if (cards.index('TC') > -1 and cards.index('JC') > -1 and
 		cards.index('QC') > -1 and cards.index('KC') > -1 and
-		cards.index('AC') > -1 and rank = 123:
+		cards.index('AC') > -1 and rank = 123):
 		    rank = 302
 		    message = 'Straight Flush'
 
-		if cards.index('TD') > -1 and cards.index('JD') > -1 and
+		if (cards.index('TD') > -1 and cards.index('JD') > -1 and
 		cards.index('QD') > -1 and cards.index('KD') > -1 and
-		cards.index('AD') > -1 and rank = 123:
+		cards.index('AD') > -1 and rank = 123):
 		    rank = 302
 		    message = 'Straight Flush'
 
-		if cards.index('TH') > -1 and cards.index('JH') > -1 and
+		if (cards.index('TH') > -1 and cards.index('JH') > -1 and
 		cards.index('QH') > -1 and cards.index('KH') > -1 and
-		cards.index('AH') > -1 and rank = 123:
+		cards.index('AH') > -1 and rank = 123):
 		    rank = 302
 		    message = 'Straight Flush'
 
-		if cards.index('TS') > -1 and cards.index('JS') > -1 and
+		if (cards.index('TS') > -1 and cards.index('JS') > -1 and
 		cards.index('QS') > -1 and cards.index('KS') > -1 and
-		cards.index('AS') > -1 and rank = 123:
+		cards.index('AS') > -1 and rank = 123):
 		    rank = 302
 		    message = 'Straight Flush'
 
-		if cards.index('9C') > -1 and cards.index('TC') > -1 and
+		if (cards.index('9C') > -1 and cards.index('TC') > -1 and
 		cards.index('JC') > -1 and cards.index('QC') > -1 and
-		cards.index('KC') > -1 and rank = 123:
+		cards.index('KC') > -1 and rank = 123):
 		    rank = 301
 		    message = 'Straight Flush'
 
-		if cards.index('9D') > -1 and cards.index('TD') > -1 and
+		if (cards.index('9D') > -1 and cards.index('TD') > -1 and
 		cards.index('JD') > -1 and cards.index('QD') > -1 and
-		cards.index('KD') > -1 and rank = 123:
+		cards.index('KD') > -1 and rank = 123):
 		    rank = 301
 		    message = 'Straight Flush'
 
-		if cards.index('9H') > -1 and cards.index('TH') > -1 and
+		if (cards.index('9H') > -1 and cards.index('TH') > -1 and
 		cards.index('JH') > -1 and cards.index('QH') > -1 and
-		cards.index('KH') > -1 and rank = 123:
+		cards.index('KH') > -1 and rank = 123):
 		    rank = 301
 		    message = 'Straight Flush'
 
-		if cards.index('9S') > -1 and cards.index('TS') > -1 and
+		if (cards.index('9S') > -1 and cards.index('TS') > -1 and
 		cards.index('JS') > -1 and cards.index('QS') > -1 and
-		cards.index('KS') > -1 and rank = 123:
+		cards.index('KS') > -1 and rank = 123):
 		    rank = 301
 		    message = 'Straight Flush'
 
-		if cards.index('8C') > -1 and cards.index('9C') > -1 and
+		if (cards.index('8C') > -1 and cards.index('9C') > -1 and
 		cards.index('TC') > -1 and cards.index('JC') > -1 and
-		cards.index('QC') > -1 and rank = 123:
+		cards.index('QC') > -1 and rank = 123):
 		    rank = 300
 		    message = 'Straight Flush'
 
-		if cards.index('8D') > -1 and cards.index('9D') > -1 and
+		if (cards.index('8D') > -1 and cards.index('9D') > -1 and
 		cards.index('TD') > -1 and cards.index('JD') > -1 and
-		cards.index('QD') > -1 and rank = 123:
+		cards.index('QD') > -1 and rank = 123):
 		    rank = 300
 		    message = 'Straight Flush'
 
-		if cards.index('8H') > -1 and cards.index('9H') > -1 and
+		if (cards.index('8H') > -1 and cards.index('9H') > -1 and
 		cards.index('TH') > -1 and cards.index('JH') > -1 and
-		cards.index('QH') > -1 and rank = 123:
+		cards.index('QH') > -1 and rank = 123):
 		    rank = 300
 		    message = 'Straight Flush'
 
-		if cards.index('8S') > -1 and cards.index('9S') > -1 and
+		if (cards.index('8S') > -1 and cards.index('9S') > -1 and
 		cards.index('TS') > -1 and cards.index('JS') > -1 and
-		cards.index('QS') > -1 and rank = 123:
+		cards.index('QS') > -1 and rank = 123):
 		    rank = 300
 		    message = 'Straight Flush'
 
-		if cards.index('7C') > -1 and cards.index('8C') > -1 and
+		if (cards.index('7C') > -1 and cards.index('8C') > -1 and
 		cards.index('9C') > -1 and cards.index('TC') > -1 and
-		cards.index('JC') > -1 and rank = 123:
+		cards.index('JC') > -1 and rank = 123):
 		    rank = 299
 		    message = 'Straight Flush'
 
-		if cards.index('7D') > -1 and cards.index('8D') > -1 and
+		if (cards.index('7D') > -1 and cards.index('8D') > -1 and
 		cards.index('9D') > -1 and cards.index('TD') > -1 and
-		cards.index('JD') > -1 and rank = 123:
+		cards.index('JD') > -1 and rank = 123):
 		    rank = 299
 		    message = 'Straight Flush'
 
-		if cards.index('7H') > -1 and cards.index('8H') > -1 and
+		if (cards.index('7H') > -1 and cards.index('8H') > -1 and
 		cards.index('9H') > -1 and cards.index('TH') > -1 and
-		cards.index('JH') > -1 and rank = 123:
+		cards.index('JH') > -1 and rank = 123):
 		    rank = 299
 		    message = 'Straight Flush'
 
-		if cards.index('7S') > -1 and cards.index('8S') > -1 and
+		if (cards.index('7S') > -1 and cards.index('8S') > -1 and
 		cards.index('9S') > -1 and cards.index('TS') > -1 and
-		cards.index('JS') > -1 and rank = 123:
+		cards.index('JS') > -1 and rank = 123):
 		    rank = 299
 		    message = 'Straight Flush'
 
-		if cards.index('6C') > -1 and cards.index('7C') > -1 and
+		if (cards.index('6C') > -1 and cards.index('7C') > -1 and
 		cards.index('8C') > -1 and cards.index('9C') > -1 and
-		cards.index('TC') > -1 and rank = 123:
+		cards.index('TC') > -1 and rank = 123):
 		    rank = 298
 		    message = 'Straight Flush'
 
-		if cards.index('6D') > -1 and cards.index('7D') > -1 and
+		if (cards.index('6D') > -1 and cards.index('7D') > -1 and
 		cards.index('8D') > -1 and cards.index('9D') > -1 and
-		cards.index('TD') > -1 and rank = 123:
+		cards.index('TD') > -1 and rank = 123):
 		    rank = 298
 		    message = 'Straight Flush'
 
-		if cards.index('6H') > -1 and cards.index('7H') > -1 and
+		if (cards.index('6H') > -1 and cards.index('7H') > -1 and
 		cards.index('8H') > -1 and cards.index('9H') > -1 and
-		cards.index('TH') > -1 and rank = 123:
+		cards.index('TH') > -1 and rank = 123):
 		    rank = 298
 		    message = 'Straight Flush'
 
-		if cards.index('6S') > -1 and cards.index('7S') > -1 and
+		if (cards.index('6S') > -1 and cards.index('7S') > -1 and
 		cards.index('8S') > -1 and cards.index('9S') > -1 and
-		cards.index('TS') > -1 and rank = 123:
+		cards.index('TS') > -1 and rank = 123):
 		    rank = 298
 		    message = 'Straight Flush'
 
-		if cards.index('5C') > -1 and cards.index('6C') > -1 and
+		if (cards.index('5C') > -1 and cards.index('6C') > -1 and
 		cards.index('7C') > -1 and cards.index('8C') > -1 and
-		cards.index('9C') > -1 and rank = 123:
+		cards.index('9C') > -1 and rank = 123):
 		    rank = 297
 		    message = 'Straight Flush'
 
-		if cards.index('5D') > -1 and cards.index('6D') > -1 and
+		if (cards.index('5D') > -1 and cards.index('6D') > -1 and
 		cards.index('7D') > -1 and cards.index('8D') > -1 and
-		cards.index('9D') > -1 and rank = 123:
+		cards.index('9D') > -1 and rank = 123):
 		    rank = 297
 		    message = 'Straight Flush'
 
-		if cards.index('5H') > -1 and cards.index('6H') > -1 and
+		if (cards.index('5H') > -1 and cards.index('6H') > -1 and
 		cards.index('7H') > -1 and cards.index('8H') > -1 and
-		cards.index('9H') > -1 and rank = 123:
+		cards.index('9H') > -1 and rank = 123):
 		    rank = 297
 		    message = 'Straight Flush'
 
-		if cards.index('5S') > -1 and cards.index('6S') > -1 and
+		if (cards.index('5S') > -1 and cards.index('6S') > -1 and
 		cards.index('7S') > -1 and cards.index('8S') > -1 and
-		cards.index('9S') > -1 and rank = 123:
+		cards.index('9S') > -1 and rank = 123):
 		    rank = 297
 		    message = 'Straight Flush'
 
-		if cards.index('4C') > -1 and cards.index('5C') > -1 and
+		if (cards.index('4C') > -1 and cards.index('5C') > -1 and
 		cards.index('6C') > -1 and cards.index('7C') > -1 and
-		cards.index('8C') > -1 and rank = 123:
+		cards.index('8C') > -1 and rank = 123):
 		    rank = 296
 		    message = 'Straight Flush'
 
-		if cards.index('4D') > -1 and cards.index('5D') > -1 and
+		if (cards.index('4D') > -1 and cards.index('5D') > -1 and
 		cards.index('6D') > -1 and cards.index('7D') > -1 and
-		cards.index('8D') > -1 and rank = 123:
+		cards.index('8D') > -1 and rank = 123):
 		    rank = 296
 		    message = 'Straight Flush'
 
-		if cards.index('4H') > -1 and cards.index('5H') > -1 and
+		if (cards.index('4H') > -1 and cards.index('5H') > -1 and
 		cards.index('6H') > -1 and cards.index('7H') > -1 and
-		cards.index('8H') > -1 and rank = 123:
+		cards.index('8H') > -1 and rank = 123):
 		    rank = 296
 		    message = 'Straight Flush'
 
-		if cards.index('4S') > -1 and cards.index('5S') > -1 and
+		if (cards.index('4S') > -1 and cards.index('5S') > -1 and
 		cards.index('6S') > -1 and cards.index('7S') > -1 and
-		cards.index('8S') > -1 and rank = 123:
+		cards.index('8S') > -1 and rank = 123):
 		    rank = 296
 		    message = 'Straight Flush'
 
-		if cards.index('3C') > -1 and cards.index('4C') > -1 and
+		if (cards.index('3C') > -1 and cards.index('4C') > -1 and
 		cards.index('5C') > -1 and cards.index('6C') > -1 and
-		cards.index('7C') > -1 and rank = 123:
+		cards.index('7C') > -1 and rank = 123):
 		    rank = 295
 		    message = 'Straight Flush'
 
-		if cards.index('3D') > -1 and cards.index('4D') > -1 and
+		if (cards.index('3D') > -1 and cards.index('4D') > -1 and
 		cards.index('5D') > -1 and cards.index('6D') > -1 and
-		cards.index('7D') > -1 and rank = 123:
+		cards.index('7D') > -1 and rank = 123):
 		    rank = 295
 		    message = 'Straight Flush'
 
-		if cards.index('3H') > -1 and cards.index('4H') > -1 and
+		if (cards.index('3H') > -1 and cards.index('4H') > -1 and
 		cards.index('5H') > -1 and cards.index('6H') > -1 and
-		cards.index('7H') > -1 and rank = 123:
+		cards.index('7H') > -1 and rank = 123):
 		    rank = 295
 		    message = 'Straight Flush'
 
-		if cards.index('3S') > -1 and cards.index('4S') > -1 and
+		if (cards.index('3S') > -1 and cards.index('4S') > -1 and
 		cards.index('5S') > -1 and cards.index('6S') > -1 and
-		cards.index('7S') > -1 and rank = 123:
+		cards.index('7S') > -1 and rank = 123):
 		    rank = 295
 		    message = 'Straight Flush'
 
-		if cards.index('2C') > -1 and cards.index('3C') > -1 and
+		if (cards.index('2C') > -1 and cards.index('3C') > -1 and
 		cards.index('4C') > -1 and cards.index('5C') > -1 and
-		cards.index('6C') > -1 and rank = 123:
+		cards.index('6C') > -1 and rank = 123):
 		    rank = 294
 		    message = 'Straight Flush'
 
-		if cards.index('2D') > -1 and cards.index('3D') > -1 and
+		if (cards.index('2D') > -1 and cards.index('3D') > -1 and
 		cards.index('4D') > -1 and cards.index('5D') > -1 and
-		cards.index('6D') > -1 and rank = 123:
+		cards.index('6D') > -1 and rank = 123):
 		    rank = 294
 		    message = 'Straight Flush'
 
-		if cards.index('2H') > -1 and cards.index('3H') > -1 and
+		if (cards.index('2H') > -1 and cards.index('3H') > -1 and
 		cards.index('4H') > -1 and cards.index('5H') > -1 and
-		cards.index('6H') > -1 and rank = 123:
+		cards.index('6H') > -1 and rank = 123):
 		    rank = 294
 		    message = 'Straight Flush'
 
-		if cards.index('2S') > -1 and cards.index('3S') > -1 and
+		if (cards.index('2S') > -1 and cards.index('3S') > -1 and
 		cards.index('4S') > -1 and cards.index('5S') > -1 and
-		cards.index('6S') > -1 and rank = 123:
+		cards.index('6S') > -1 and rank = 123):
 		    rank = 294
 		    message = 'Straight Flush'
 
-		if cards.index('AC') > -1 and cards.index('2C') > -1 and
+		if (cards.index('AC') > -1 and cards.index('2C') > -1 and
 		cards.index('3C') > -1 and cards.index('4C') > -1 and
-		cards.index('5C') > -1 and rank = 123:
-		    rank = 294
+		cards.index('5C') > -1 and rank = 123):
+		    rank = 293
 		    message = 'Straight Flush'
 
-		if cards.index('AD') > -1 and cards.index('2D') > -1 and
+		if (cards.index('AD') > -1 and cards.index('2D') > -1 and
 		cards.index('3D') > -1 and cards.index('4D') > -1 and
-		cards.index('5D') > -1 and rank = 123:
+		cards.index('5D') > -1 and rank = 123):
 		    rank = 293
 		    message = 'Straight Flush'
 
-		if cards.index('AH') > -1 and cards.index('2H') > -1 and
+		if (cards.index('AH') > -1 and cards.index('2H') > -1 and
 		cards.index('3H') > -1 and cards.index('4H') > -1 and
-		cards.index('5H') > -1 and rank = 123:
+		cards.index('5H') > -1 and rank = 123):
 		    rank = 293
 		    message = 'Straight Flush'
 
-		if cards.index('AS') > -1 and cards.index('2S') > -1 and
+		if (cards.index('AS') > -1 and cards.index('2S') > -1 and
 		cards.index('3S') > -1 and cards.index('4S') > -1 and
-		cards.index('5S') > -1 and rank = 123:
+		cards.index('5S') > -1 and rank = 123):
 		    rank = 293
 		    message = 'Straight Flush'
 
