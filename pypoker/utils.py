@@ -1329,17 +1329,53 @@ def rank_hand_int(hand):
 			if ranks.index('88') > -1 and ranks.index('22') > -1 and rank == 0:
 				rank = 37 + rank_kickers(ranks.replace('88', '').replace('22', ''),1)
 
-			
+			if ranks.index('77') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 36 + rank_kickers(ranks.replace('77', '').replace('66', ''),1)
 
-			
+			if ranks.index('77') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 35 + rank_kickers(ranks.replace('77', '').replace('55', ''),1)
 
-			
+			if ranks.index('77') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 34 + rank_kickers(ranks.replace('77', '').replace('44', ''),1)
 
-			
+			if ranks.index('77') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 33 + rank_kickers(ranks.replace('77', '').replace('33', ''),1)
 
-			
+			if ranks.index('77') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 32 + rank_kickers(ranks.replace('77', '').replace('22', ''),1)
 
-			
+			if ranks.index('66') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 31 + rank_kickers(ranks.replace('66', '').replace('55', ''),1)
+
+			if ranks.index('66') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 30 + rank_kickers(ranks.replace('66', '').replace('44', ''),1)
+
+			if ranks.index('66') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 29 + rank_kickers(ranks.replace('66', '').replace('33', ''),1)
+
+			if ranks.index('66') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 28 + rank_kickers(ranks.replace('66', '').replace('22', ''),1)
+
+			if ranks.index('55') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 27 + rank_kickers(ranks.replace('55', '').replace('44', ''),1)
+
+			if ranks.index('55') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 26 + rank_kickers(ranks.replace('55', '').replace('33', ''),1)
+
+			if ranks.index('55') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 25 + rank_kickers(ranks.replace('55', '').replace('22', ''),1)
+
+			if ranks.index('44') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 24 + rank_kickers(ranks.replace('44', '').replace('33', ''),1)
+
+			if ranks.index('44') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 23 + rank_kickers(ranks.replace('44', '').replace('22', ''),1)
+
+			if ranks.index('33') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 22 + rank_kickers(ranks.replace('33', '').replace('22', ''),1)
+
+			if rank != 0:
+				message = 'Two Pair'			
 
 		# One Pair
 		if rank == 0:
@@ -1416,21 +1452,3 @@ def rank_hand_int(hand):
 
 		result = Result(rank, message)
 		return result
-
-			
-
-		
-
-			
-
-
-
-
-
-		
-
-		
-
-
-
-
