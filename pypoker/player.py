@@ -119,6 +119,3 @@ class Player(object):
 		self.turn_bet = {'action': 'all_in', 'player_name': self.player_name, 'amount' : all_in_value}
 		# Attempt to progress the game
 		progress(self.table)
-
-
-
