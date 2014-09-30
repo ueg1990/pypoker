@@ -1139,6 +1139,207 @@ def rank_hand_int(hand):
 				message = 'Three of a kind'
 
 		# Two Pair
+		if rank == 0:
+			if ranks.index('AA') > -1 and ranks.index('KK') > -1:
+				rank = 99 + rank_kickers(ranks.replace('AA', '').replace('KK',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('QQ') > -1 and rank == 0:
+				rank = 98 + rank_kickers(ranks.replace('AA', '').replace('QQ',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('JJ') > -1 and rank == 0:
+				rank = 97 + rank_kickers(ranks.replace('AA', '').replace('JJ',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('TT') > -1 and rank == 0:
+				rank = 96 + rank_kickers(ranks.replace('AA', '').replace('TT',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('99') > -1 and rank == 0:
+				rank = 95 + rank_kickers(ranks.replace('AA', '').replace('99',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('88') > -1 and rank == 0:
+				rank = 94 + rank_kickers(ranks.replace('AA', '').replace('88',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('77') > -1 and rank == 0:
+				rank = 93 + rank_kickers(ranks.replace('AA', '').replace('77',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 92 + rank_kickers(ranks.replace('AA', '').replace('66',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 91 + rank_kickers(ranks.replace('AA', '').replace('55',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 90 + rank_kickers(ranks.replace('AA', '').replace('44',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 89 + rank_kickers(ranks.replace('AA', '').replace('33',''),1)
+
+			if ranks.index('AA') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 88 + rank_kickers(ranks.replace('AA', '').replace('22',''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('QQ') > -1 and rank == 0:
+				rank = 87 + rank_kickers(ranks.replace('KK', '').replace('QQ', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('JJ') > -1 and rank == 0:
+				rank = 86 + rank_kickers(ranks.replace('KK', '').replace('JJ', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('TT') > -1 and rank == 0:
+				rank = 85 + rank_kickers(ranks.replace('KK', '').replace('TT', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('99') > -1 and rank == 0:
+				rank = 84 + rank_kickers(ranks.replace('KK', '').replace('99', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('88') > -1 and rank == 0:
+				rank = 83 + rank_kickers(ranks.replace('KK', '').replace('88', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('77') > -1 and rank == 0:
+				rank = 82 + rank_kickers(ranks.replace('KK', '').replace('77', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 81 + rank_kickers(ranks.replace('KK', '').replace('66', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 80 + rank_kickers(ranks.replace('KK', '').replace('55', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 79 + rank_kickers(ranks.replace('KK', '').replace('44', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 78 + rank_kickers(ranks.replace('KK', '').replace('33', ''),1)
+
+			if ranks.index('KK') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 77 + rank_kickers(ranks.replace('KK', '').replace('22', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('JJ') > -1 and rank == 0:
+				rank = 76 + rank_kickers(ranks.replace('QQ', '').replace('JJ', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('TT') > -1 and rank == 0:
+				rank = 75 + rank_kickers(ranks.replace('QQ', '').replace('TT', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('99') > -1 and rank == 0:
+				rank = 74 + rank_kickers(ranks.replace('QQ', '').replace('99', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('88') > -1 and rank == 0:
+				rank = 73 + rank_kickers(ranks.replace('QQ', '').replace('88', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('77') > -1 and rank == 0:
+				rank = 72 + rank_kickers(ranks.replace('QQ', '').replace('77', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 71 + rank_kickers(ranks.replace('QQ', '').replace('66', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 70 + rank_kickers(ranks.replace('QQ', '').replace('55', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 69 + rank_kickers(ranks.replace('QQ', '').replace('44', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 68 + rank_kickers(ranks.replace('QQ', '').replace('33', ''),1)
+
+			if ranks.index('QQ') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 67 + rank_kickers(ranks.replace('QQ', '').replace('22', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('TT') > -1 and rank == 0:
+				rank = 66 + rank_kickers(ranks.replace('JJ', '').replace('TT', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('99') > -1 and rank == 0:
+				rank = 65 + rank_kickers(ranks.replace('JJ', '').replace('99', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('88') > -1 and rank == 0:
+				rank = 64 + rank_kickers(ranks.replace('JJ', '').replace('88', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('77') > -1 and rank == 0:
+				rank = 63 + rank_kickers(ranks.replace('JJ', '').replace('77', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 62 + rank_kickers(ranks.replace('JJ', '').replace('66', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 61 + rank_kickers(ranks.replace('JJ', '').replace('55', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 60 + rank_kickers(ranks.replace('JJ', '').replace('44', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 59 + rank_kickers(ranks.replace('JJ', '').replace('33', ''),1)
+
+			if ranks.index('JJ') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 58 + rank_kickers(ranks.replace('JJ', '').replace('22', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('99') > -1 and rank == 0:
+				rank = 57 + rank_kickers(ranks.replace('TT', '').replace('99', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('88') > -1 and rank == 0:
+				rank = 56 + rank_kickers(ranks.replace('TT', '').replace('88', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('77') > -1 and rank == 0:
+				rank = 55 + rank_kickers(ranks.replace('TT', '').replace('77', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 54 + rank_kickers(ranks.replace('TT', '').replace('66', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 53 + rank_kickers(ranks.replace('TT', '').replace('55', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 52 + rank_kickers(ranks.replace('TT', '').replace('44', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 51 + rank_kickers(ranks.replace('TT', '').replace('33', ''),1)
+
+			if ranks.index('TT') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 50 + rank_kickers(ranks.replace('TT', '').replace('22', ''),1)
+
+			if ranks.index('99') > -1 and ranks.index('88') > -1 and rank == 0:
+				rank = 49 + rank_kickers(ranks.replace('99', '').replace('88', ''),1)
+
+			if ranks.index('99') > -1 and ranks.index('77') > -1 and rank == 0:
+				rank = 48 + rank_kickers(ranks.replace('99', '').replace('77', ''),1)
+
+			if ranks.index('99') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 47 + rank_kickers(ranks.replace('99', '').replace('66', ''),1)
+
+			if ranks.index('99') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 46 + rank_kickers(ranks.replace('99', '').replace('55', ''),1)
+
+			if ranks.index('99') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 45 + rank_kickers(ranks.replace('99', '').replace('44', ''),1)
+
+			if ranks.index('99') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 44 + rank_kickers(ranks.replace('99', '').replace('33', ''),1)
+
+			if ranks.index('99') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 43 + rank_kickers(ranks.replace('99', '').replace('22', ''),1)
+
+			if ranks.index('88') > -1 and ranks.index('77') > -1 and rank == 0:
+				rank = 42 + rank_kickers(ranks.replace('88', '').replace('77', ''),1)
+
+			if ranks.index('88') > -1 and ranks.index('66') > -1 and rank == 0:
+				rank = 41 + rank_kickers(ranks.replace('88', '').replace('66', ''),1)
+
+			if ranks.index('88') > -1 and ranks.index('55') > -1 and rank == 0:
+				rank = 40 + rank_kickers(ranks.replace('88', '').replace('55', ''),1)
+
+			if ranks.index('88') > -1 and ranks.index('44') > -1 and rank == 0:
+				rank = 39 + rank_kickers(ranks.replace('88', '').replace('44', ''),1)
+
+			if ranks.index('88') > -1 and ranks.index('33') > -1 and rank == 0:
+				rank = 38 + rank_kickers(ranks.replace('88', '').replace('33', ''),1)
+
+			if ranks.index('88') > -1 and ranks.index('22') > -1 and rank == 0:
+				rank = 37 + rank_kickers(ranks.replace('88', '').replace('22', ''),1)
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
 
 		# One Pair
 		if rank == 0:
