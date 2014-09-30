@@ -1093,6 +1093,54 @@ def rank_hand_int(hand):
 			if rank != 0:
 				message = 'Straight'
 
+		# Three of a kind
+		if rank == 0:
+			if ranks.index('AAA') > -1:
+				rank = 112 + rank_kickers(ranks.replace('AAA', ''), 2)
+
+			if ranks.index('KKK') > -1 and rank == 0:
+				rank = 111 + rank_kickers(ranks.replace('KKK', ''), 2)
+
+			if ranks.index('QQQ') > -1 and rank == 0:
+				rank = 110 + rank_kickers(ranks.replace('QQQ', ''), 2)
+
+			if ranks.index('JJJ') > -1 and rank == 0:
+				rank = 109 + rank_kickers(ranks.replace('JJJ', ''), 2)
+
+			if ranks.index('TTT') > -1 and rank == 0:
+				rank = 108 + rank_kickers(ranks.replace('TTT', ''), 2)
+
+			if ranks.index('999') > -1 and rank == 0:
+				rank = 107 + rank_kickers(ranks.replace('999', ''), 2)
+
+			if ranks.index('888') > -1 and rank == 0:
+				rank = 106 + rank_kickers(ranks.replace('888', ''), 2)
+
+			if ranks.index('777') > -1 and rank == 0:
+				rank = 105 + rank_kickers(ranks.replace('777', ''), 2)
+
+			if ranks.index('666') > -1 and rank == 0:
+				rank = 104 + rank_kickers(ranks.replace('666', ''), 2)
+
+			if ranks.index('555') > -1 and rank == 0:
+				rank = 103 + rank_kickers(ranks.replace('555', ''), 2)
+
+			if ranks.index('444') > -1 and rank == 0:
+				rank = 102 + rank_kickers(ranks.replace('444', ''), 2)
+
+			if ranks.index('333') > -1 and rank == 0:
+				rank = 101 + rank_kickers(ranks.replace('333', ''), 2)
+
+			if ranks.index('222') > -1 and rank == 0:
+				rank = 100 + rank_kickers(ranks.replace('222', ''), 2)
+
+			if rank != 0:
+				message = 'Three of a kind'
+
+		
+
+			
+
 
 
 
