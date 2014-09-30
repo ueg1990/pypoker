@@ -1137,6 +1137,98 @@ def rank_hand_int(hand):
 			if rank != 0:
 				message = 'Three of a kind'
 
+		# Two Pair
+
+		# One Pair
+		if rank == 0:
+			if ranks.index('AA') > -1:
+				rank = 21 + rank_kickers(ranks.replace('AA', ''), 3)
+
+			if ranks.index('KK') > -1 and rank == 0:
+				rank = 20 + rank_kickers(ranks.replace('KK', ''), 3)
+
+			if ranks.index('QQ') > -1 and rank == 0:
+				rank = 19 + rank_kickers(ranks.replace('QQ', ''), 3)
+
+			if ranks.index('JJ') > -1 and rank == 0:
+				rank = 18 + rank_kickers(ranks.replace('JJ', ''), 3)
+
+			if ranks.index('TT') > -1 and rank == 0:
+				rank = 17 + rank_kickers(ranks.replace('TT', ''), 3)
+
+			if ranks.index('99') > -1 and rank == 0:
+				rank = 16 + rank_kickers(ranks.replace('99', ''), 3)
+
+			if ranks.index('88') > -1 and rank == 0:
+				rank = 15 + rank_kickers(ranks.replace('88', ''), 3)
+
+			if ranks.index('77') > -1 and rank == 0:
+				rank = 14 + rank_kickers(ranks.replace('77', ''), 3)
+
+			if ranks.index('66') > -1 and rank == 0:
+				rank = 13 + rank_kickers(ranks.replace('66', ''), 3)
+
+			if ranks.index('55') > -1 and rank == 0:
+				rank = 12 + rank_kickers(ranks.replace('55', ''), 3)
+
+			if ranks.index('44') > -1 and rank == 0:
+				rank = 11 + rank_kickers(ranks.replace('44', ''), 3)
+
+			if ranks.index('33') > -1 and rank == 0:
+				rank = 10 + rank_kickers(ranks.replace('33', ''), 3)
+
+			if ranks.index('22') > -1 and rank == 0:
+				rank = 9 + rank_kickers(ranks.replace('22', ''), 3)
+
+			if rank != 0:
+				message = 'Pair'
+
+		# High Card
+		if rank == 0:
+			if ranks.index('AA') > -1:
+				rank = 21 + rank_kickers(ranks.replace('AA', ''), 3)
+
+			if ranks.index('KK') > -1 and rank == 0:
+				rank = 20 + rank_kickers(ranks.replace('KK', ''), 3)
+
+			if ranks.index('QQ') > -1 and rank == 0:
+				rank = 19 + rank_kickers(ranks.replace('QQ', ''), 3)
+
+			if ranks.index('JJ') > -1 and rank == 0:
+				rank = 18 + rank_kickers(ranks.replace('JJ', ''), 3)
+
+			if ranks.index('TT') > -1 and rank == 0:
+				rank = 17 + rank_kickers(ranks.replace('TT', ''), 3)
+
+			if ranks.index('99') > -1 and rank == 0:
+				rank = 16 + rank_kickers(ranks.replace('99', ''), 3)
+
+			if ranks.index('88') > -1 and rank == 0:
+				rank = 15 + rank_kickers(ranks.replace('88', ''), 3)
+
+			if ranks.index('77') > -1 and rank == 0:
+				rank = 14 + rank_kickers(ranks.replace('77', ''), 3)
+
+			if ranks.index('66') > -1 and rank == 0:
+				rank = 13 + rank_kickers(ranks.replace('66', ''), 3)
+
+			if ranks.index('55') > -1 and rank == 0:
+				rank = 12 + rank_kickers(ranks.replace('55', ''), 3)
+
+			if ranks.index('44') > -1 and rank == 0:
+				rank = 11 + rank_kickers(ranks.replace('44', ''), 3)
+
+			if ranks.index('33') > -1 and rank == 0:
+				rank = 10 + rank_kickers(ranks.replace('33', ''), 3)
+
+			if ranks.index('22') > -1 and rank == 0:
+				rank = 9 + rank_kickers(ranks.replace('22', ''), 3)
+
+			if rank != 0:
+				message = 'Pair'
+
+			
+
 		
 
 			
