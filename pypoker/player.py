@@ -106,7 +106,7 @@ class Player(object):
 
 	def all_in(self):
 		'''
-		Function to allow player to go al in
+		Function to allow player to go all in
 		'''
 		for index, player in enumerate(self.table.players):
 			if self == player:
