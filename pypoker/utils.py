@@ -3,6 +3,7 @@ This module contains a set of helper functions that will be used in the
 implementation of the poker game engie
 '''
 from hand import Hand
+from result import Result
 
 def get_max_bet(list_of_bets):
 	'''
@@ -1185,47 +1186,35 @@ def rank_hand_int(hand):
 
 		# High Card
 		if rank == 0:
-			if ranks.index('AA') > -1:
-				rank = 21 + rank_kickers(ranks.replace('AA', ''), 3)
+			if ranks.index('A') > -1:
+				rank = 8 + rank_kickers(ranks.replace('A', ''), 4)
 
-			if ranks.index('KK') > -1 and rank == 0:
-				rank = 20 + rank_kickers(ranks.replace('KK', ''), 3)
+			if ranks.index('K') > -1 and rank == 0:
+				rank = 7 + rank_kickers(ranks.replace('K', ''), 4)
 
-			if ranks.index('QQ') > -1 and rank == 0:
-				rank = 19 + rank_kickers(ranks.replace('QQ', ''), 3)
+			if ranks.index('Q') > -1 and rank == 0:
+				rank = 6 + rank_kickers(ranks.replace('Q', ''), 4)
 
-			if ranks.index('JJ') > -1 and rank == 0:
-				rank = 18 + rank_kickers(ranks.replace('JJ', ''), 3)
+			if ranks.index('J') > -1 and rank == 0:
+				rank = 5 + rank_kickers(ranks.replace('J', ''), 4)
 
-			if ranks.index('TT') > -1 and rank == 0:
-				rank = 17 + rank_kickers(ranks.replace('TT', ''), 3)
+			if ranks.index('T') > -1 and rank == 0:
+				rank = 4 + rank_kickers(ranks.replace('T', ''), 4)
 
-			if ranks.index('99') > -1 and rank == 0:
-				rank = 16 + rank_kickers(ranks.replace('99', ''), 3)
+			if ranks.index('9') > -1 and rank == 0:
+				rank = 3 + rank_kickers(ranks.replace('9', ''), 4)
 
-			if ranks.index('88') > -1 and rank == 0:
-				rank = 15 + rank_kickers(ranks.replace('88', ''), 3)
+			if ranks.index('8') > -1 and rank == 0:
+				rank = 2 + rank_kickers(ranks.replace('8', ''), 4)
 
-			if ranks.index('77') > -1 and rank == 0:
-				rank = 14 + rank_kickers(ranks.replace('77', ''), 3)
-
-			if ranks.index('66') > -1 and rank == 0:
-				rank = 13 + rank_kickers(ranks.replace('66', ''), 3)
-
-			if ranks.index('55') > -1 and rank == 0:
-				rank = 12 + rank_kickers(ranks.replace('55', ''), 3)
-
-			if ranks.index('44') > -1 and rank == 0:
-				rank = 11 + rank_kickers(ranks.replace('44', ''), 3)
-
-			if ranks.index('33') > -1 and rank == 0:
-				rank = 10 + rank_kickers(ranks.replace('33', ''), 3)
-
-			if ranks.index('22') > -1 and rank == 0:
-				rank = 9 + rank_kickers(ranks.replace('22', ''), 3)
+			if ranks.index('7') > -1 and rank == 0:
+				rank = 1 + rank_kickers(ranks.replace('7', ''), 4)
 
 			if rank != 0:
-				message = 'Pair'
+				message = 'High Card'
+
+		result = Result(rank, message)
+		return result
 
 			
 
