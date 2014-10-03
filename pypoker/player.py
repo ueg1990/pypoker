@@ -81,7 +81,7 @@ class Player(object):
 			progress(self.table)
 		else:
 			print 'You don\'t have enough chips --> ALL IN !!!'
-			self.all_in()
+			self.go_all_in()
 
 	def call(self):
 		'''
@@ -102,9 +102,9 @@ class Player(object):
 			progress(self.table)
 		else:
 			print 'You don\'t have enough chips --> ALL IN !!!'
-			self.all_in()
+			self.go_all_in()
 
-	def all_in(self):
+	def go_all_in(self):
 		'''
 		Function to allow player to go all in
 		'''
