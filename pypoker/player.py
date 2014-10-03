@@ -87,7 +87,7 @@ class Player(object):
 		'''
 		Function to allow player to call
 		'''
-		max_bet = get_max_bet
+		max_bet = get_max_bet(self.table.game.bets)
 		if self.chips > max_bet:
 			# Match the highest bet
 			for index, player in enumerate(self.table.players):
