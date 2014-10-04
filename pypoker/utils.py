@@ -70,12 +70,17 @@ def check_for_end_of_round(table):
 	'''
 	Function checks if the current round has ended
 	'''
+	#print 'number of players: ' +  str(len(table.players))
 	end_of_round = True
 	max_bet = get_max_bet(table.game.bets)
+	#print 'max_bet : ' +  max_bet
 	for index, player in enumerate(table.players):
 		if not player.folded:
+		#	print 'did not fold'
 			if (not player.talked) or (table.game.bets[index] != max_bet):
+				#print 'talked : ' + player.talked + ' and player bet is: ' + table.game.bets[index]
 				if not player.all_in:
+					#print 'not all in'
 					table.current_player = index
 					end_of_round = False
 	return end_of_round
@@ -116,7 +121,8 @@ def get_player_index(player):
 
 def progress(table):
 	if table.game: 
-		if check_for_end_of_round:
+		if check_for_end_of_round(table):
+			#print 'end_of_round'
 			# Move all bets to the pot
 			for index,bet in enumerate(table.game.bets):
 				if table.game.bets[index]:
@@ -131,6 +137,7 @@ def progress(table):
 				for index, player in enumerate(table.players):
 					cards = table.players[index].cards + table.game.board
 					hand = Hand(cards)
+					print hand
 					table.players[index].hand = rank_hand(hand)
 				check_for_winner(table)
 				check_for_bankrupt(table)
@@ -261,30 +268,36 @@ def rank_hand_int(hand):
 	hand_ranks = []
 	hand_suits = []
 
+	print hand
+	print hand.cards
 	for index, card in enumerate(hand.cards):
-		hand_ranks[index] = card[0]
-		hand_suits[index] = card[1]
+		#print card, index
+		hand_ranks.append(card[0])
+		hand_suits.append(card[1])
+		#hand_ranks[index] = card[0]
+		#hand_suits[index] = card[1]
 
 	# Verify the following 3 lines - Very Important!!!
-	ranks = ','.join(sorted(hand_ranks)) # Replace non-wirds with ''
-	suits = ','.join(sorted(hand_suits)) # Replace non-wirds with ''
-	cards = ','.join(hand.cards)
+	ranks = ''.join(sorted(hand_ranks)) # Replace non-wirds with ''
+	suits = ''.join(sorted(hand_suits)) # Replace non-wirds with ''
+	cards = ''.join(hand.cards)
 
+	print ranks
 	# Four of a kind
 	if rank == 0:
-		if ranks.index('AAAA') > -1:
+		if ranks.find('AAAA') > -1:
 			rank = 292 + rank_kickers(ranks.replace('AAAA',''), 1)
 
-		if ranks.index('KKKK') > -1 and rank == 0:
+		if ranks.find('KKKK') > -1 and rank == 0:
 			rank = 291 + rank_kickers(ranks.replace('KKKK',''), 1)
 
-		if ranks.index('QQQQ') > -1 and rank == 0:
+		if ranks.find('QQQQ') > -1 and rank == 0:
 			rank = 290 + rank_kickers(ranks.replace('QQQQ',''), 1)
 
-		if ranks.index('JJJJ') > -1 and rank == 0:
+		if ranks.find('JJJJ') > -1 and rank == 0:
 			rank = 289 + rank_kickers(ranks.replace('JJJJ',''), 1)
 
-		if ranks.index('TTTT') > -1 and rank == 0:
+		if ranks.find('TTTT') > -1 and rank == 0:
 			rank = 288 + rank_kickers(ranks.replace('TTTT',''), 1)
 
 		if ranks.index('9999') > -1 and rank == 0:

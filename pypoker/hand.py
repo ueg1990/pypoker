@@ -8,7 +8,7 @@ class Hand(object):
 		self.cards = cards
 
 	def __str__(self):
-		return self.cards
+		return str(self.cards)
 
 	def __len__(self):
 		return len(self.cards)
