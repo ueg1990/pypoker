@@ -87,7 +87,7 @@ class Player(object):
 		'''
 		Function to allow player to call
 		'''
-		print self.player_name + " played"
+		#print self.player_name + " played"
 		max_bet = get_max_bet(self.table.game.bets)
 		if self.chips > max_bet:
 			# Match the highest bet

@@ -83,7 +83,7 @@ def check_for_end_of_round(table):
 					#print 'not all in'
 					table.current_player = index
 					end_of_round = False
-	print "end_of_round: " + str(end_of_round)
+	#print "end_of_round: " + str(end_of_round)
 	return end_of_round
 
 def check_for_all_in_players(table, winners):
