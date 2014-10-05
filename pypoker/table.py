@@ -4,7 +4,7 @@ This module defines a class for the Poker Table for the game engine
 
 from game import Game
 from player import Player
-from deck = Deck
+from deck import Deck
 
 class Table(object):
 	'''
