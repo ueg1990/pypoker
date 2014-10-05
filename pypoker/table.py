@@ -4,6 +4,7 @@ This module defines a class for the Poker Table for the game engine
 
 from game import Game
 from player import Player
+from deck = Deck
 
 class Table(object):
 	'''
@@ -100,7 +101,24 @@ class Table(object):
 		'''
 		Function to initalise next round of current game
 		'''
-		pass
+		self.dealer += 1
+		if self.dealer >= len(self.players):
+			self.dealer = 0
+
+		self.game.pot = 0
+		self.game.round_name = 'Deal'
+		sef.game.bet_name = 'bet'
+		self.game.bets = []
+		self.game.deck = Deck()
+		self.game.board = []
+		for index, player in self.players:
+			self.players[index].folded = False
+			self.players[index].talked = False
+			self.players[index].all_in = False
+			self.players[index].cards = []
+
+		self.new_round()
+
 
 	def add_player(self, player_name, chips):
 		'''
