@@ -96,6 +96,12 @@ class Table(object):
 		if self.current_player >= len(self.players):
 			self.current_player -= len(self.players)
 
+	def init_new_round(self):
+		'''
+		Function to initalise next round of current game
+		'''
+		pass
+
 	def add_player(self, player_name, chips):
 		'''
 		Function to add a player to a game
