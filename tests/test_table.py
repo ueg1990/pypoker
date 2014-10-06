@@ -40,6 +40,9 @@ class TableTestCase(unittest.TestCase):
         self.table.new_round()
         self.assertEqual(self.table.current_player, 0)
 
+    def test_table_init_new_round(self):
+        pass
+
     def tearDown(self):
         pass
 

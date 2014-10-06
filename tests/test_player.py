@@ -15,16 +15,16 @@ class PlayerTestCase(unittest.TestCase):
     def test_player_check(self):
         pass
 
-    def test_player_check(self):
+    def test_player_call(self):
         pass
 
-    def test_player_check(self):
+    def test_player_fold(self):
         pass
 
-    def test_player_check(self):
+    def test_player_bet(self):
         pass
 
-    def test_player_all_in(self):
+    def test_player_go_all_in(self):
         pass
 
     def tearDown(self):
