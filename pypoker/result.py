@@ -9,4 +9,4 @@ class Result(object):
 		self.message = message
 
 	def __str__(self):
-		return self.rank + " " + self.message
+		return str(self.rank) + " " + self.message

@@ -268,7 +268,7 @@ def rank_hand_int(hand):
 	hand_ranks = []
 	hand_suits = []
 
-	for index, card in enumerate(hand.cards):
+	for index, card in enumerate(hand):
 		#print card, index
 		hand_ranks.append(card[0])
 		hand_suits.append(card[1])
@@ -278,8 +278,8 @@ def rank_hand_int(hand):
 	# Verify the following 3 lines - Very Important!!!
 	ranks = ''.join(sorted(hand_ranks)) # Replace non-wirds with ''
 	suits = ''.join(sorted(hand_suits)) # Replace non-wirds with ''
-	cards = ''.join(hand.cards)
-
+	cards = ''.join(hand)
+	
 	# Four of a kind
 	if rank == 0:
 		if ranks.find('AAAA') > -1:
@@ -1460,5 +1460,5 @@ def rank_hand_int(hand):
 			if rank != 0:
 				message = 'High Card'
 
-		result = Result(rank, message)
-		return result
+	result = Result(rank, message)
+	return result
