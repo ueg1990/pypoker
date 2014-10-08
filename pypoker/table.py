@@ -107,11 +107,11 @@ class Table(object):
 
 		self.game.pot = 0
 		self.game.round_name = 'Deal'
-		sef.game.bet_name = 'bet'
+		self.game.bet_name = 'bet'
 		self.game.bets = []
 		self.game.deck = Deck()
 		self.game.board = []
-		for index, player in self.players:
+		for index, player in enumerate(self.players):
 			self.players[index].folded = False
 			self.players[index].talked = False
 			self.players[index].all_in = False
