@@ -1,5 +1,5 @@
 import unittest
-from pypoker import utils, Table, Player
+from pypoker import utils, Table, Player, Hand
 
 class UtilsTestCase(unittest.TestCase):
     ''' 
@@ -27,8 +27,24 @@ class UtilsTestCase(unittest.TestCase):
         self.assertEqual(index, 2)
 
     def test_check_for_winner(self):
-        pass
+        self.table.start_game()
+        self.table.players[1].call()
+        self.table.players[2].call()
+        self.table.players[3].call()
+        self.table.players[0].call()
 
+        rank_players = []
+        for index, player in enumerate(self.table.players):
+            cards = self.table.players[index].cards + self.table.game.board
+            hand = Hand(cards)
+            self.table.players[index].hand = utils.rank_hand(hand)
+            rank_players.append((self.table.players[index].hand.rank, player.player_name))
+        
+        winner = max(rank_players)[1]
+        utils.check_for_winner(self.table)
+
+        self.assertEqual(self.table.game_winners[0]['player_name'], winner)
+        
     def test_check_for_end_of_round(self):
         self.table.start_game()
         self.table.players[1].call()

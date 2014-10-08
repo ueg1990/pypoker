@@ -22,7 +22,6 @@ def check_for_winner(table):
 			max_rank = player.hand.rank
 			winners = []
 			winners.append(index)
-
 	part = 0
 	prize = 0
 	all_in_players = check_for_all_in_players(table, winners)
@@ -118,7 +117,6 @@ def get_player_index(player):
 def progress(table):
 	if table.game: 
 		if check_for_end_of_round(table):
-			#print 'end_of_round'
 			# Move all bets to the pot
 			for index,bet in enumerate(table.game.bets):
 				if table.game.bets[index]:
