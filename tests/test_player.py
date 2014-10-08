@@ -41,10 +41,21 @@ class PlayerTestCase(unittest.TestCase):
         self.assertTrue(self.table.players[1].folded)
 
     def test_player_bet(self):
-        pass
+        self.table.players[1].call()
+        self.table.players[2].call()
+        self.table.players[3].call()
+        self.table.players[0].call()
+        current_chips = self.table.players[1].chips
+        self.table.players[1].bet(50)
+        self.assertEqual(self.table.players[1].chips + 50, current_chips)
 
     def test_player_go_all_in(self):
-        pass
+        self.table.players[1].call()
+        self.table.players[2].call()
+        self.table.players[3].call()
+        self.table.players[0].call()
+        self.table.players[1].go_all_in()
+        self.assertEqual(self.table.players[1].chips, 0)
 
     def tearDown(self):
         pass

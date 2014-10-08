@@ -17,12 +17,12 @@ class TableTestCase(unittest.TestCase):
         self.table.add_player('ehtesham', 1000)
         self.assertEqual(self.table.players_to_add, [Player('usman', 1000, self.table), Player('ehtesham', 1000, self.table)])
 
-    def test_table_remove_player(self):
-        self.table.add_player('usman', 1000)
-        self.table.add_player('ehtesham', 1000)
-        self.table.add_player('gul', 1000)
-        self.table.start_game()
-        self.table.remove_player('ehtesham')
+    # def test_table_remove_player(self):
+    #     self.table.add_player('usman', 1000)
+    #     self.table.add_player('ehtesham', 1000)
+    #     self.table.add_player('gul', 1000)
+    #     self.table.start_game()
+    #     self.table.remove_player('ehtesham')
         
     def test_table_start_game(self):
         self.table.add_player('usman', 1000)
@@ -41,8 +41,13 @@ class TableTestCase(unittest.TestCase):
         self.assertEqual(self.table.current_player, 0)
 
     def test_table_init_new_round(self):
-        pass
-        
+        self.table.add_player('usman', 1000)
+        self.table.add_player('ehtesham', 1000)
+        self.table.add_player('gul', 1000)
+        self.table.start_game()
+        self.table.init_new_round()
+        self.assertEqual(self.table.dealer, 1)
+
 
     def tearDown(self):
         pass
