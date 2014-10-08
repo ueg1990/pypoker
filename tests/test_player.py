@@ -8,18 +8,37 @@ class PlayerTestCase(unittest.TestCase):
     '''
     def setUp(self):
         self.player = Player('usman', 1000, None)
+        self.table = Table(50,100,2,10,100,1000)
+        self.table.add_player('bob',1000)
+        self.table.add_player('jane',1000)
+        self.table.add_player('dylan',1000)
+        self.table.add_player('john',1000)
+        self.table.start_game()
 
     def test_player_initialization(self):
     	self.assertEqual([self.player.player_name, self.player.chips], ['usman', 1000])
     
     def test_player_check(self):
-        pass
+        self.table.players[1].call()
+        self.table.players[2].call()
+        self.table.players[3].call()
+        self.table.players[0].call()
+        self.table.players[1].check()
+        self.assertEqual(self.table.players[1].chips, 900)
+
 
     def test_player_call(self):
-        pass
+        self.table.players[1].call()
+        self.assertEqual(self.table.players[1].chips, 900)
+
 
     def test_player_fold(self):
-        pass
+        self.table.players[1].call()
+        self.table.players[2].call()
+        self.table.players[3].call()
+        self.table.players[0].call()
+        self.table.players[1].fold()
+        self.assertTrue(self.table.players[1].folded)
 
     def test_player_bet(self):
         pass
