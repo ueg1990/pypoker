@@ -70,20 +70,15 @@ def check_for_end_of_round(table):
 	'''
 	Function checks if the current round has ended
 	'''
-	#print 'number of players: ' +  str(len(table.players))
 	end_of_round = True
-	max_bet = get_max_bet(table.game.bets)
-	#print 'max_bet : ' +  max_bet
-	for index, player in enumerate(table.players):
-		if not player.folded:
-		#	print 'did not fold'
-			if (not player.talked) or (table.game.bets[index] != max_bet):
-				#print 'talked : ' + player.talked + ' and player bet is: ' + table.game.bets[index]
-				if not player.all_in:
-					#print 'not all in'
-					table.current_player = index
-					end_of_round = False
-	#print "end_of_round: " + str(end_of_round)
+	if table.game.bets:
+		max_bet = get_max_bet(table.game.bets)
+		for index, player in enumerate(table.players):
+			if not player.folded:
+				if (not player.talked) or (table.game.bets[index] != max_bet):
+					if not player.all_in:
+						table.current_player = index
+						end_of_round = False
 	return end_of_round
 
 def check_for_all_in_players(table, winners):
