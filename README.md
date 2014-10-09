@@ -3,6 +3,10 @@ pypoker
 
 Found an amazing poker game engine written in javascript at https://github.com/yannlombard/node-poker. The project aims to re-write this poker game engine in Python. 
 
+| Build Status |
+| ------------ |
+| [![Build Status](https://travis-ci.org/ueg1990/pypoker.svg?branch=master)](https://travis-ci.org/ueg1990/pypoker)|
+
 Setup
 ====
 Clone the public repository by running the following command in the terminal:
