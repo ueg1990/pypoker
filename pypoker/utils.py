@@ -22,6 +22,7 @@ def check_for_winner(table):
 			max_rank = player.hand.rank
 			winners = []
 			winners.append(index)
+	print 'winners: ' + str(winners)
 	part = 0
 	prize = 0
 	all_in_players = check_for_all_in_players(table, winners)
@@ -82,10 +83,10 @@ def check_for_end_of_round(table):
 
 def check_for_all_in_players(table, winners):
 	'''
-	Function that returns a list of players that wnet all in
+	Function that returns a list of players that went all in
 	'''
 	all_in_players = []
-	for index, winner in enumerate(winners):
+	for winner in winners:
 		if table.players[winner].all_in:
 			all_in_players.append(winner)
 	return all_in_players

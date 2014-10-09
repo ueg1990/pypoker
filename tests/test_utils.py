@@ -68,17 +68,22 @@ class UtilsTestCase(unittest.TestCase):
         self.table.players[0].call()
         
         self.assertTrue(utils.check_for_end_of_round(self.table))
-        
-
 
     def test_check_for_all_in_players(self):
-        pass
+        self.table.start_game()
+        self.table.players[1].go_all_in()
+        self.table.players[2].go_all_in()
+        winners = [0,2,1,3]
+        self.assertEqual(utils.check_for_all_in_players(self.table, winners), [2,1])
 
     def test_check_for_bankrupt(self):
-        pass
-
-    def test_progress(self):
-        pass
+        self.table.start_game()
+        players = set([player.player_name for player in self.table.players])
+        self.table.players[1].go_all_in()
+        self.table.players[2].go_all_in()
+        utils.check_for_bankrupt(self.table)
+        players_bankrupt =  players - set([player.player_name for player in self.table.players])
+        self.assertEqual(players_bankrupt, set(['usman', 'ehtesham']) )
 
     def tearDown(self):
         pass
